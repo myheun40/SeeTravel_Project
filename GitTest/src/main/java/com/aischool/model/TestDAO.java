@@ -1,5 +1,11 @@
 package com.aischool.model;
 
-public class TestDAO {
+import java.sql.Connection;
 
+public class TestDAO {
+     private Connection conn;
+     
+     public void connect() { 
+    	 
+     }
 }
