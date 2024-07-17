@@ -17,9 +17,10 @@ public class Test extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.print("첫 번째 코드 생성");
+
+		System.out.println("크롤링 알바 구해요~");
 		System.out.print("?????");
 
-		
 	}
 
 }
