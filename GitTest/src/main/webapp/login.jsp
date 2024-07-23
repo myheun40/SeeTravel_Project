@@ -19,7 +19,6 @@
 <title>Login page</title>
 </head>
 <body>
-	aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
 	<div class="register">
 
