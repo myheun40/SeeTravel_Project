@@ -77,13 +77,14 @@
 					<div class="div3">마이페이지</div>
 			  </div>
       			<div class="sidemenu">
+      					<br>
         				<div class="div4"><button class="menu bucket">내가 담은 여행지</button></div>
 						<div class="div4"><button class="menu correct">회원 정보 확인</button></div>
-<<<<<<< HEAD
+
         				<div class="div4"><button class="menu correct" onclick="window.location.href='modify.jsp'">개인정보수정</button></div>
-=======
+
         				<div class="div4"><button class="menu correct" onclick="navigateToModify()">개인정보수정</button></div>
->>>>>>> refs/heads/장소브랜치추가
+
         				<div class="div4"><button class="out menu">회원탈퇴</button></div>
       			</div>
     		</div>
