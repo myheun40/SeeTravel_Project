@@ -108,7 +108,7 @@
                 <div class="item1">
                   <div class="yangyang">
                     <b class="yangyang1">YangYang</b>
-                    <a href="#" name=""><img
+                    <a href="Yangyang.jsp" name=""><img
                       class="icon yangyang-icon"
                       loading="lazy"
                       alt="양양바다"
@@ -119,7 +119,7 @@
                 <div class="item2">
                   <div class="busan">
                     <b class="busan1">Busan</b>
-                    <a href="#" name=""><img
+                    <a href="Busan.jsp" name=""><img
                       class="icon busan-icon"
                       loading="lazy"
                       alt="부산바다"
@@ -130,7 +130,7 @@
                 <div class="item3">
                   <div class="yeosu">
                     <b class="yeosu1">Yeosu</b>
-                    <a href="#" name=""><img
+                    <a href="Yeosu.jsp" name=""><img
                       class="icon yeosu-icon"
                       loading="lazy"
                       alt="여수바다"
