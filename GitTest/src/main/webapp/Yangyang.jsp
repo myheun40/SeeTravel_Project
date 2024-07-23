@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<button onclick="location.href='basket.jsp'">장바구니</button>
+<button onclick="location.href='Basket.jsp'">장바구니</button>
 <br><br>
 <button onclick="location.href='Schedule.jsp'">일정짜기</button>
 <br><br>
