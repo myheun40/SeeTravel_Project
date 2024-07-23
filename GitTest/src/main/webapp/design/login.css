@@ -1,0 +1,43 @@
+@charset "UTF-8";
+.login-form {
+    align-self: stretch;
+    position: relative;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid rgba(91, 123, 138, 0.7);
+    box-sizing: border-box;
+    height: 300px;
+    text-align: right;
+    font-size: 20px;
+    color: #2f2e2e;
+}
+
+.email-input {
+    position: absolute;
+    top: 100px;
+    left: 90px;
+    width: 516px;
+    height: 40px;
+}
+
+.pw-input {
+    position: absolute;
+    top: 150px;
+    left: 90px;
+    width: 516px;
+    height: 40px;
+}
+.login-container {
+    position: absolute;
+    top: 15%;
+    left: calc(50% - 384px);
+    width: 800px;
+    height: 632px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0px;
+    box-sizing: border-box;
+}
