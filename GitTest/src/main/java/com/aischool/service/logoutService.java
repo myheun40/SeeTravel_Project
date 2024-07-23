@@ -1,4 +1,4 @@
-package com.aischool;
+package com.aischool.service;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,21 +6,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class Test
+ * Servlet implementation class logoutService
  */
-@WebServlet("/Test")
-public class Test extends HttpServlet {
+@WebServlet("/logoutService")
+public class logoutService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		System.out.println("첫 번째 코드 생성");
-		System.out.println("두 번째 코드 생성");
-
-
+		HttpSession session = request.getSession();
+		session.removeAttribute("logindata");
+		response.sendRedirect("mainPage.jsp");
 	}
 
 }
