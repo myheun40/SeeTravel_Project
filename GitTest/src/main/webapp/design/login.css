@@ -41,3 +41,7 @@
     padding: 100px 0px;
     box-sizing: border-box;
 }
+
+.navTxt a{
+	text-decoration:none;
+}
