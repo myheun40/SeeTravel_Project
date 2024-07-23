@@ -1,5 +1,12 @@
+<%@page import="com.aischool.model.WebMember"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<%
+  WebMember member = (WebMember) session.getAttribute("logindata");
+  String errorMsg = (String) request.getAttribute("errorMsg");
+ %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,19 +24,23 @@
 	href="https://fonts.googleapis.com/css2?family=Arial:wght@400&display=swap" />
 
 <title>Login page</title>
+
+<style>
+.error { color: red;
+		font-size:15px }
+</style>
 </head>
 <body>
-
 	<div class="register">
 
 		<div class="header">
 			<a href="main.jsp"><img class="logo-icon" alt="로고"
-				src="design/KakaoTalk_20240722_104503600.jpg"></a>
+				src="image/KakaoTalk_20240722_104503600.jpg"></a>
 			<div class="right">
 				<div class="nav">
 					<span class="navTxt"><u>여행 일정 만들기</u></span>
 				</div>
-				<a href="login.html"><div class="login">
+				<a href="login.jsp"><div class="login">
 						<div class="div3">로그인</div>
 					</div></a>
 			</div>
@@ -53,9 +64,13 @@
 							<div class="input1">
 								<input class="input" type="password" name="pw"
 									placeholder="비밀번호를 입력해주세요">
+									<% if (errorMsg != null) { %>
+             					   <p class="error" align = "center"><%= errorMsg %></p>
+        							 <% } %>
 							</div>
 						</div>
 				</div>
+				 
 				<button class="register1">
 					<i class="register2">Login</i>
 				</button>

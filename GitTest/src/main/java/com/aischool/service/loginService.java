@@ -30,11 +30,11 @@ public class loginService extends HttpServlet {
 		if(member2 != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("logindata", member2);
-			response.sendRedirect("mainPage.jsp");
+			response.sendRedirect("main.jsp");
 			System.out.println("로그인 성공");
 		}else {
-			response.sendRedirect("mainPage.jsp");
-			System.out.println("로그인 실패");
+			request.setAttribute("errorMsg", "이메일 또는 비밀번호를 다시 입력해주세요.");
+            request.getRequestDispatcher("login.jsp").forward(request, response); //회원정보수정페이지로 
 		}
 		
 	}

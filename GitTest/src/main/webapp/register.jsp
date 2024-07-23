@@ -29,7 +29,7 @@
 				<div class="nav">
 					<span class="navTxt"><u>여행 일정 만들기</u></span>
 				</div>
-				<a href="login.html"><div class="login">
+				<a href="login.jsp"><div class="login">
 						<div class="div3">로그인</div>
 					</div></a>
 			</div>
@@ -40,24 +40,25 @@
 			<div class="parent">
 				<div class="div">회원가입</div>
 				<div class="input-form">
-					<form action="">
+					<form action="JoinService" mmethod="action">
 						<div class="private">
 							<span class="agree">개인정보 제 3자 제공 동의 여부</span> <input
 								type="checkbox">
 						</div>
 						<i class="name txt">Name</i>
 						<div class="inputName">
-							<input class="input" type="text" placeholder="이름을 입력해주세요">
+							<input class="input" type="text" name="name" placeholder="이름을입력해주세요">
 						</div>
 						<div class="name-parent">
 							<i class="name1">Nickname</i>
 							<div class="input1">
-								<input class="input" type="text" placeholder="닉네임을 입력해주세요">
+								<input class="input" type="text" name="id"
+									placeholder="닉네임을 입력해주세요">
 							</div>
 						</div>
 						<div class="input-parent">
 							<div class="input1">
-								<input class="input" type="text"
+								<input class="input" type="text" name="email"
 									placeholder="아이디로 사용할 E-mail 입력해주세요">
 							</div>
 							<i class="email txt">E-mail</i>
@@ -65,7 +66,7 @@
 						<div class="pw-parent">
 							<i class="pw txt">Password</i>
 							<div class="input1">
-								<input class="input" type="password" minlength="8"
+								<input class="input" type="password" minlength="8" name="pw"
 									placeholder="8자리 이상의 비밀번호를 입력해주세요">
 							</div>
 						</div>
@@ -78,12 +79,17 @@
 						<button class="div1">
 							<span class="check">중복확인</span>
 						</button>
-					</form>
 				</div>
-				<button class="register1">
+
+				<button class="register1" type="submit">
 					<i class="register2">Register</i>
 				</button>
+
+
+
 			</div>
+			</form>
+
 		</div>
 
 

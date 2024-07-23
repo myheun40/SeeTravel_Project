@@ -1,5 +1,10 @@
+<%@page import="com.aischool.model.WebMember"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%
+  WebMember member = (WebMember) session.getAttribute("logindata");
+ %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -32,7 +37,7 @@
 
         <div class="div"></div>
         <div class="link">
-          <a class="a1" href="login.html">로그인</a>
+          <a class="a1" href="login.jsp">로그인</a>
         </div>
         <a href="main.html"><img
           class="kakaotalk-20240722-104503600-2-icon"
