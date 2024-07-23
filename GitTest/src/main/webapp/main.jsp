@@ -1,5 +1,10 @@
+<%@page import="com.aischool.model.WebMember"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%
+  WebMember member = (WebMember) session.getAttribute("logindata");
+ %>
 <!DOCTYPE html>
 <html>
   <head>

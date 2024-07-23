@@ -24,6 +24,11 @@ public class JoinService extends HttpServlet {
 		String pw = request.getParameter("pw");
 		String name = request.getParameter("name");
 		String id = request.getParameter("id");
+		
+	    System.out.println("Received email: " + email);
+	    System.out.println("Received password: " + pw);
+	    System.out.println("Received name: " + name);
+	    System.out.println("Received id: " + id);
 
 		WebMember member = new WebMember(email, pw, name, id);
 		
@@ -31,10 +36,10 @@ public class JoinService extends HttpServlet {
 		
 		int cnt = dao.memberJoin(member);
 		if(cnt > 0) {
-			RequestDispatcher dis = request.getRequestDispatcher("mainPage.jsp");
+			RequestDispatcher dis = request.getRequestDispatcher("main.jsp");
 			dis.forward(request, response);
 		}else {
-			response.sendRedirect("mainPage.jsp");
+			response.sendRedirect("register.jsp");
 		}	
 	}
 
