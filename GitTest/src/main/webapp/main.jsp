@@ -29,14 +29,14 @@
     <div class="root">
       <header class="header">
         <div class="trip-planner">
-          <span class="navTxt"><u>여행 일정 만들기</u></span>
+          <span class="navTxt"><a href="#plan" style="color:#20303c"><u>여행 일정 만들기</u></a></span>
         </div>
 
         <div class="div"></div>
         <div class="link">
-          <a class="a1" href="login.html">로그인</a>
+          <a class="a1" href="login.jsp">로그인</a>
         </div>
-        <a href="main.html"><img
+        <a href="main.jsp"><img
           class="kakaotalk-20240722-104503600-2-icon"
           loading="lazy"
           alt="로고"
@@ -68,7 +68,7 @@
       <section class="main-content-parent">
         <div class="main-content">
           <div class="travel-plan-parent">
-            <h1 class="travel-plan">Travel Plan</h1>
+            <h1 class="travel-plan" id="plan">Travel Plan</h1>
             <div class="div1">떠나고 싶은 여행 날짜와 지역을 선택하세요</div>
           </div>
         </div>

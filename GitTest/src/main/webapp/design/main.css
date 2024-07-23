@@ -81,6 +81,11 @@
   .navTxt{
     cursor:pointer;
   }
+
+  .navTxt a{
+    text-decoration: none;
+    color: #20303c;
+  }
   .main-img1-icon {
     height: 585px;
     flex: 1;

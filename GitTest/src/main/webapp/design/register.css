@@ -257,6 +257,12 @@
     justify-content: center;
     padding: 10px;
 }
+
+ .navTxt a{
+    text-decoration: none;
+    color: #20303c;
+  }
+  
 .div3 {
     cursor: pointer;
     position: absolute;

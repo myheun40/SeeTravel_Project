@@ -19,18 +19,16 @@
 <title>Login page</title>
 </head>
 <body>
-	aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-
 	<div class="register">
 
 		<div class="header">
 			<a href="main.jsp"><img class="logo-icon" alt="로고"
-				src="design/KakaoTalk_20240722_104503600.jpg"></a>
+				src="image/KakaoTalk_20240722_104503600.jpg"></a>
 			<div class="right">
 				<div class="nav">
-					<span class="navTxt"><u>여행 일정 만들기</u></span>
+					<span class="navTxt"><a href="main.jsp#plan"><u>여행 일정 만들기</u></a></span>
 				</div>
-				<a href="login.html"><div class="login">
+				<a href="login.jsp"><div class="login">
 						<div class="div3">로그인</div>
 					</div></a>
 			</div>
