@@ -1,12 +1,9 @@
 <%@page import="com.aischool.model.WebMember"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<<<<<<< HEAD
-=======
 <%
 WebMember member = (WebMember) session.getAttribute("logindata");
 %>
->>>>>>> refs/heads/장소브랜치추가
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,24 +22,13 @@ WebMember member = (WebMember) session.getAttribute("logindata");
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Noto Sans KR:wght@400&display=swap" />
 
-
-
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/heads/장소브랜치추가
 </head>
 <body>
 	<div class="frame5">
 
-		<img class="main-img1-icon" alt="" src="image/main_img1.jpg"> <b
-<<<<<<< HEAD
-			class="nickname">Nickname님의 여행 기록</b> <img class="shoe-print-icon"
-			alt="" src="image/shoe-print.png">
-=======
-			class="nickname"><%=member.getId()%>님의 여행 기록</b> <img
-			class="shoe-print-icon" alt="" src="image/shoe-print.png">
->>>>>>> refs/heads/장소브랜치추가
+		<img class="main-img1-icon" alt="" src="image/main_img1.jpg"> 
+		<b class="nickname"><%=member.getId()%>님의 여행 기록</b> 
+		<img class="shoe-print-icon" alt="" src="image/shoe-print.png">
 
 		<div class="header">
 			<div class="nav">
@@ -52,18 +38,13 @@ WebMember member = (WebMember) session.getAttribute("logindata");
 				<div class="link">
 					<div class="wrapper">
 						<div class="div8">
-<<<<<<< HEAD
-							<a href="main.jsp">로그아웃</a>
-=======
-							<a href="main.jsp" method = "post">로그아웃</a>
->>>>>>> refs/heads/장소브랜치추가
+							<a href="main.jsp" method="post">로그아웃</a>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div>
-				<a href="main.jsp"><img class="logo" alt="로고"
-					src="image/KakaoTalk_20240722_104503600.jpg"></a>
+				<a href="main.jsp"><img class="logo" alt="로고" src="image/KakaoTalk_20240722_104503600.jpg"></a>
 			</div>
 		</div>
 		<div class="frame5-child"></div>
@@ -79,38 +60,25 @@ WebMember member = (WebMember) session.getAttribute("logindata");
 						<form action="editService">
 							<i class="name txt">Name</i>
 							<div class="inputName">
-<<<<<<< HEAD
-								<input class="input" type="text" name="name"
-									placeholder="이름을 입력해주세요">
-=======
-								<input class="input" type="text" name = "name" placeholder="이름을 입력해주세요">
->>>>>>> refs/heads/장소브랜치추가
+								<input class="input" type="text" name="name" placeholder="이름을 입력해주세요">
 							</div>
 
 							<div class="name-parent">
 								<i class="name1">Nickname</i>
 								<div class="input1">
-<<<<<<< HEAD
-									<input class="input" type="text" name="id"
-										placeholder="수정할 닉네임을 입력해주세요">
-=======
-									<input class="input" type="text" name = "id" placeholder="수정할 닉네임을 입력해주세요">
->>>>>>> refs/heads/장소브랜치추가
+									<input class="input" type="text" name="id" placeholder="수정할 닉네임을 입력해주세요">
 								</div>
 							</div>
 
 							<div class="pw-parent">
 								<i class="pw txt">Password</i>
 								<div class="input1">
-<<<<<<< HEAD
-									<input class="input" type="password" name="pw" minlength="8"
-										placeholder="8자리 이상의 비밀번호를 입력해주세요">
+									<input class="input" type="password" name="pw" minlength="8" placeholder="8자리 이상의 비밀번호를 입력해주세요">
 								</div>
 							</div>
 							<div class="input-group">
 								<div class="input1">
-									<input class="input" type="password" name="pw"
-										placeholder="수정할 비밀번호 재입력해주세요">
+									<input class="input" type="password" name="pw" placeholder="수정할 비밀번호 재입력해주세요">
 								</div>
 								<i class="pw1 txt">Password</i>
 							</div>
@@ -119,7 +87,6 @@ WebMember member = (WebMember) session.getAttribute("logindata");
 								<i class="modify-i">Modify</i>
 							</button>
 						</form>
-
 					</div>
 				</div>
 			</div>
@@ -143,68 +110,8 @@ WebMember member = (WebMember) session.getAttribute("logindata");
 					<button class="out menu">회원탈퇴</button>
 				</div>
 			</div>
-
 		</div>
-=======
-									<input class="input" type="password" name = "pw" minlength="8"
-										placeholder="8자리 이상의 비밀번호를 입력해주세요">
-								</div>
-							</div>
-							<div class="input-group">
-								<div class="input1">
-									<input class="input" type="password" name = "pw"
-										placeholder="수정할 비밀번호 재입력해주세요">
-								</div>
-								<i class="pw1 txt">Password</i>
-							</div>
-
-							<button class="modify">
-								<i class="modify-i">Modify</i>
-							</button>
-						</form>
->>>>>>> refs/heads/장소브랜치추가
-
-
-<<<<<<< HEAD
-=======
-					</div>
-				</div>
-			</div>
-		</div>
->>>>>>> refs/heads/장소브랜치추가
-
-<<<<<<< HEAD
-	</div>
-=======
-		<div class="sidebar">
-			<div class="side-title">
-				<div class="div3">마이페이지</div>
-			</div>
-			<div class="sidemenu">
-				<div class="div4">
-					<button class="menu bucket">내가 담은 여행지</button>
-				</div>
-				<div class="div4">
-					<button class="menu correct">회원 정보 확인</button>
-				</div>
-				<div class="div4">
-					<button class="menu correct">개인정보수정</button>
-				</div>
-				<div class="div4">
-					<button class="out menu">회원탈퇴</button>
-				</div>
-			</div>
->>>>>>> refs/heads/장소브랜치추가
-
-<<<<<<< HEAD
-=======
-		</div>
-
-
 
 	</div>
-
->>>>>>> refs/heads/장소브랜치추가
-
 </body>
 </html>
