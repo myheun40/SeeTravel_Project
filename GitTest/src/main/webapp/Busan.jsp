@@ -1,6 +1,6 @@
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.aischool.model.FirstScreenVO"%>
-<%@page import="com.aischool.model.FirstScreenDAO"%>
+<%@page import="com.aischool.placemodel.FirstScreenVO"%>
+<%@page import="com.aischool.placemodel.FirstScreenDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -19,7 +19,7 @@
 <%
 	FirstScreenDAO dao = new FirstScreenDAO();
 	
-	ArrayList<FirstScreenVO> list = dao.BusanList();
+	ArrayList<FirstScreenVO> list = dao.infoSelect();
 	double[] latitude= new double[list.size()];
 	double[] longitude= new double[list.size()];
 	

@@ -40,10 +40,24 @@
 				<div class="nav">
 					<span class="navTxt"><a href="main.jsp#plan"><u>여행 일정 만들기</u></a></span>
 				</div>
+				
+				<%if (member == null){%>
 				<a href="login.jsp"><div class="login">
 						<div class="div3">로그인</div>
 					</div></a>
-			</div>
+				</div>
+				<%}else{%>
+				<a href="Mypage.jsp"><div class="mypage">
+						<div class="div3">마이페이지</div>
+					</div></a>
+				</div>
+				<a href="logout.jsp"><div class="logout">
+						<div class="div3">로그아웃</div>
+					</div></a>
+				</div>
+				<%}%>
+				
+			
 			<div class="header-line"></div>
 		</div>
 

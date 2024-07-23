@@ -1,5 +1,11 @@
+<%@page import="com.aischool.model.WebMember"%>
+<%@page import="com.aischool.model.WebMemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%
+ WebMember member = (WebMember)session.getAttribute("logindata");
+%>
 
   	<meta name="viewport" content="initial-scale=1, width=device-width">
   	
@@ -73,19 +79,23 @@
       			<div class="sidemenu">
         				<div class="div4"><button class="menu bucket">내가 담은 여행지</button></div>
 						<div class="div4"><button class="menu correct">회원 정보 확인</button></div>
-        				<div class="div4"><button class="menu correct">개인정보수정</button></div>
+        				<div class="div4"><button class="menu correct" onclick="navigateToModify()">개인정보수정</button></div>
         				<div class="div4"><button class="out menu">회원탈퇴</button></div>
       			</div>
     		</div>
     	
     		<img class="main-img1-icon" alt="" src="image/main_img1.jpg">
     		
-    		<b class="nickname">Nickname님의 여행 기록</b>
+    		<b class="nickname"><%=member.getId() %>님의 여행 기록</b>
     		<img class="shoe-print-icon" alt="" src="image/shoe-print.png">
     		
   	</div>
   	
-  	
+  	<script>
+  	function navigateToModify() {
+        window.location.href = 'modify.jsp';
+    }
+  	</script>
   	
   	
 </body>
