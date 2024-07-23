@@ -36,11 +36,23 @@
         <div class="trip-planner">
           <span class="navTxt"><a href="#plan" style="color:#20303c"><u>여행 일정 만들기</u></a></span>
         </div>
-
         <div class="div"></div>
-        <div class="link">
+        <%if(member == null){%>
+        	<div class="link">
           <a class="a1" href="login.jsp">로그인</a>
         </div>
+        <%}else{%>
+        <div class="trip-planner">
+          <span class="navTxt"><a href="Mypage.jsp" style="color:#20303c"><u>마이 페이지</u></a></span>
+          </div>
+        <div class="link">
+          <a class="a1" href="logoutService">로그아웃</a>
+        </div>
+        
+        <%} %>
+        
+        
+        
         <a href="main.jsp"><img
           class="kakaotalk-20240722-104503600-2-icon"
           loading="lazy"
