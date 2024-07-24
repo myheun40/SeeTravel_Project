@@ -65,6 +65,7 @@
 			<div class="parent">
 				<div class="div">로그인</div>
 				<div class="login-form">
+				<span class="spancheck">아이디/비밀번호가 없으신가요?</span><a href="register.jsp" class="refo">회원가입하기</a>		
 					<form action="loginService">
 						<div class="email-input">
 							<div class="input1">
