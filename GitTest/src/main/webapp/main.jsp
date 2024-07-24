@@ -123,48 +123,52 @@
                 <i class="destination">Travel Destination</i>
               </div>
               <div class="items">
+                <button>
                 <div class="item1">
                   <div class="yangyang">
                     <b class="yangyang1">YangYang</b>
-                    <a href="Yangyang.jsp" name=""><img
+                    <img
                       class="icon yangyang-icon"
                       loading="lazy"
                       alt="양양바다"
                       src="image/yangyang.png"
-                    /></a>
+                    />
                   </div>
-                </div>
+                </div></button>
+                <button>
                 <div class="item2">
                   <div class="busan">
                     <b class="busan1">Busan</b>
-                    <a href="Busan.jsp" name=""><img
+                    <a href="" name=""><img
                       class="icon busan-icon"
                       loading="lazy"
                       alt="부산바다"
                       src="image/busan.png"
                     /></a>
                   </div>
-                </div>
+                </div></button>
+                <button>
                 <div class="item3">
                   <div class="yeosu">
                     <b class="yeosu1">Yeosu</b>
-                    <a href="Yeosu.jsp" name=""><img
+                    <a href="" name=""><img
                       class="icon yeosu-icon"
                       loading="lazy"
                       alt="여수바다"
                       src="image/yeosu.png"
                     /></a>
                   </div>
-                </div>
+                </div></button>
               </div>
             </div>
           </div>
           <button class="button-generate">
-            <i class="generate">Generate</i>
+            <a href="select.jsp"><i class="generate">Generate</i></a>
           </button>
         </div>
       </section>
       <section class="footer2"></section>
     </div>
+    
   </body>
 </html>

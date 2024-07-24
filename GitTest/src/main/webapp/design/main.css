@@ -8,6 +8,15 @@
     min-width: 105px;
     white-space: nowrap;
   }
+  
+ a{
+	text-decoration:none;
+	color:none; 
+ }
+ 
+ #plan{
+ 	margin-top:80px;
+ }
   .trip-planner {
     display: flex;
     flex-direction: column;
@@ -236,7 +245,7 @@
   .date-box{
     display:flex;
     justify-content: space-between;
-    width:60%;
+    width:75%;
   }
   .button-date-icon,
   .startdate {
@@ -244,6 +253,7 @@
     position: relative;
     flex-shrink: 1;
   }
+  
   .startdate {
     width: 100%;
     border: 0;
@@ -317,6 +327,14 @@
     gap: var(--gap-base);
     max-width: 100%;
   }
+  .date-input{
+  	padding:0 15px;
+  	border-radius:5%;
+  	border-style:solid;
+  	color:gray;
+  	font-size:14px;
+  	font-family: system-ui;
+  }
   .destination {
     position: relative;
     line-height: 20px;
@@ -353,7 +371,9 @@
   .item1:hover{
     background-color: gray;
     opacity:0.5;
+    border-color:gray;
   }
+
   .item1:hover .yangyang1{
     color:white;
   }
@@ -371,6 +391,8 @@
     padding: var(--padding-8xl) var(--padding-lgi);
     box-sizing: border-box;
   }
+  
+  
   .busan1 {
     align-self: stretch;
     position: relative;
@@ -498,7 +520,6 @@
     border: 0;
     padding: var(--padding-3xs) 30px var(--padding-4xl) var(--padding-12xl);
     background-color: var(--color-darkslategray-100);
-    width: 197px;
     overflow: hidden;
     flex-direction: row;
     align-items: flex-start;
@@ -539,20 +560,21 @@
     height: 142px;
     background-color: rgba(175, 167, 164, 0.41);
   }
-  .root {
-    width: 100%;
-    position: relative;
-    background-color: var(--color-white);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-start;
-    padding: var(--padding-12xs) 0 0;
-    box-sizing: border-box;
-    line-height: normal;
-    letter-spacing: normal;
-  }
+   items button{
+   border:none;
+   font:inherit;
+   color:inherit;
+   background:inherit;
+   } 
+  
+   button{
+   border:none;
+   font:inherit;
+   color:inherit;
+   background:inherit;
+   cursor:pointer;
+   } 
+   
   @media screen and (max-width: 1100px) {
     .main-content-parent {
       padding-bottom: 118px;
@@ -672,4 +694,6 @@
       padding-right: var(--padding-xl);
       box-sizing: border-box;
     }
+    
+    
   }
