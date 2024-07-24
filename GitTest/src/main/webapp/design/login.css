@@ -45,3 +45,29 @@
 .navTxt a{
 	text-decoration:none;
 }
+
+.refo {
+    position: absolute;
+    bottom:20%;
+    left:35%;
+    font-size:13px;
+    text-decoration: underline;
+    text-align: center;
+    color:black;
+    opacity:0.6;
+    width:400px;
+}
+.refo:hover{
+    color:rgb(29, 44, 50);
+}
+
+.spancheck {
+    position: absolute;
+    bottom:20%;
+    left:18%;
+    font-size:13px;
+    text-align: center;
+    color:black;
+    opacity:0.6;
+    width:400px;
+}
