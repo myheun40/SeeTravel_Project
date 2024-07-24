@@ -78,7 +78,7 @@
               <p class="p">걸어서 바다 속으로</p>
             </h1>
             <div class="image-sub-caption">
-              <b class="b">쉽고 편하게 펼쳐보는 국밥 바다 여행</b>
+              <b class="b">쉽고 편하게 펼쳐보는 국내 바다 여행</b>
             </div>
           </div>
         </div>
