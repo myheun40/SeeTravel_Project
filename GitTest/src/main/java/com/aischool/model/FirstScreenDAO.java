@@ -58,16 +58,17 @@ public class FirstScreenDAO {
 		}
 	}
 	
-
 	
-	public ArrayList<FirstScreenVO> YangyangList() {
+	
+	public ArrayList<FirstScreenVO> list() {
 		ArrayList<FirstScreenVO> list = new ArrayList<FirstScreenVO>();
 
 		getConnection();
 
 		try {
 			
-			String sql = "SELECT PLACE_NAME, LATITUDE, LONGITUDE FROM YANGYANG ";
+			String sql = "SELECT PLACE_NAME, LATITUDE, LONGITUDE, PLACE_IMG, ADDRESS, PLACE_CONTACT FROM Yeosu "
+					+ "WHERE REGION='여수해상케이블카' and PLACE_TAG='카페'";
 
 			psmt = conn.prepareStatement(sql);
 		
@@ -77,8 +78,11 @@ public class FirstScreenDAO {
 				String locationName = rs.getString(1);
 				String latitude = rs.getString(2);
 				String longitude = rs.getString(3);
+				String img = rs.getString(4);
+				String address = rs.getString(5);
+				String phone = rs.getString(6);
 
-				FirstScreenVO vo = new FirstScreenVO(locationName, latitude, longitude);
+				FirstScreenVO vo = new FirstScreenVO(locationName, latitude, longitude, img, address, phone);
 
 				list.add(vo);
 			}
@@ -92,72 +96,30 @@ public class FirstScreenDAO {
 
 		return list;
 	}
+
 	
-	public ArrayList<FirstScreenVO> BusanList() {
-		ArrayList<FirstScreenVO> list = new ArrayList<FirstScreenVO>();
-
-		getConnection();
-
-		try {
-			
-			String sql = "SELECT PLACE_NAME, LATITUDE, LONGITUDE FROM Busan ";
-
-			psmt = conn.prepareStatement(sql);
+	public int update(WebMember member, String day1 ) {
 		
-			rs = psmt.executeQuery();
-
-			while (rs.next()) {
-				String locationName = rs.getString(1);
-				String latitude = rs.getString(2);
-				String longitude = rs.getString(3);
-
-				FirstScreenVO vo = new FirstScreenVO(locationName, latitude, longitude);
-
-				list.add(vo);
-			}
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-
-		return list;
-	}
-	
-	public ArrayList<FirstScreenVO> YeosuList() {
-		ArrayList<FirstScreenVO> list = new ArrayList<FirstScreenVO>();
-
-		getConnection();
-
-		try {
-			
-			String sql = "SELECT PLACE_NAME, LATITUDE, LONGITUDE FROM Yeosu";
-
-			psmt = conn.prepareStatement(sql);
+				getConnection();
+				try { // 3.sql문 작성 및 실행
+					String sql = "UPDATE TRAVEL_LIST SET TRAVEL_LIST=? WHERE id=?";
 		
-			rs = psmt.executeQuery();
+					psmt = conn.prepareStatement(sql);
+					psmt.setString(1, day1);
+					psmt.setString(2, member.getEmail());
+					
+		
+					cnt = psmt.executeUpdate();
+		
+			} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} finally {
+					close();
+				}
 
-			while (rs.next()) {
-				String locationName = rs.getString(1);
-				String latitude = rs.getString(2);
-				String longitude = rs.getString(3);
-
-				FirstScreenVO vo = new FirstScreenVO(locationName, latitude, longitude);
-
-				list.add(vo);
+				return cnt;
 			}
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-
-		return list;
-	}
 	
 
 }

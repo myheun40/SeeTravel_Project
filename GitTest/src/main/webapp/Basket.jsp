@@ -43,5 +43,9 @@
 	<br>  
 </form>
 <% } %> 
+<br>
+<button onclick="location.href='add.jsp'">돌아가기</button>
+<br>
+
 </body>
 </html>
