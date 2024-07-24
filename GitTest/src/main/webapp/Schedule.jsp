@@ -79,21 +79,16 @@
 	var map = new kakao.maps.Map(mapContainer, mapOption); 
 	
 	// 마커를 표시할 위치와 title 객체 배열입니다 
+
+	
 	var positions = [
 	    {
 	    	content: '<div><%=arr.get(0)%></div>', 
 	        latlng: new kakao.maps.LatLng(<%=lati1[0]%>, <%=long1[0]%>)
-	    },
-	    {
-	    	content: '<div><%=arr.get(1)%></div>',  
-	        latlng: new kakao.maps.LatLng(<%=lati1[1]%>, <%=long1[1]%>)
-	    },
-	    {
-	    	content: '<div><%=arr.get(2)%></div>',  
-	        latlng: new kakao.maps.LatLng(<%=lati1[2]%>, <%=long1[2]%>)
 	    }
 	 
 	];
+
 
 	// 마커 이미지의 이미지 주소입니다
    
