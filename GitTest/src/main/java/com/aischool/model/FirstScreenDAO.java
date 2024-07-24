@@ -67,7 +67,7 @@ public class FirstScreenDAO {
 
 		try {
 			
-			String sql = "SELECT PLACE_NAME, LATITUDE, LONGTITUDE FROM YANGYANG ";
+			String sql = "SELECT PLACE_NAME, LATITUDE, LONGITUDE FROM YANGYANG ";
 
 			psmt = conn.prepareStatement(sql);
 		
@@ -100,7 +100,7 @@ public class FirstScreenDAO {
 
 		try {
 			
-			String sql = "SELECT PLACE_NAME, LATITUDE, LONGTITUDE FROM Busan ";
+			String sql = "SELECT PLACE_NAME, LATITUDE, LONGITUDE FROM Busan ";
 
 			psmt = conn.prepareStatement(sql);
 		
@@ -133,7 +133,7 @@ public class FirstScreenDAO {
 
 		try {
 			
-			String sql = "SELECT PLACE_NAME, LATITUDE, LONGTITUDE FROM Yeosu ";
+			String sql = "SELECT PLACE_NAME, LATITUDE, LONGITUDE FROM Yeosu";
 
 			psmt = conn.prepareStatement(sql);
 		
@@ -159,8 +159,6 @@ public class FirstScreenDAO {
 		return list;
 	}
 	
-	
-
 
 }
 
