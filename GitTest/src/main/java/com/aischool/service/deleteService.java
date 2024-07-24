@@ -39,10 +39,10 @@ public class deleteService extends HttpServlet {
 		
 		if (cnt > 0 ) {
 			session.invalidate();
-			response.sendRedirect("mainPage.jsp");
+			response.sendRedirect("main.jsp");
 		}else {
 			request.setAttribute("errorMsg", "비밀번호를 다시 입력하세요.");
-            request.getRequestDispatcher("mainPage.jsp").forward(request, response);
+            request.getRequestDispatcher("Mypage.jsp").forward(request, response);
 		}
 		
 	}
