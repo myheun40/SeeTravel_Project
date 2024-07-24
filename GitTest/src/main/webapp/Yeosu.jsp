@@ -1,6 +1,7 @@
-<%@page import="java.util.ArrayList"%>
 <%@page import="com.aischool.model.FirstScreenVO"%>
 <%@page import="com.aischool.model.FirstScreenDAO"%>
+<%@page import="java.util.ArrayList"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,7 +24,7 @@
 	double[] latitude= new double[list.size()];
 	double[] longitude= new double[list.size()];
 	
-	for(int i=0; i<200; i++)
+	for(int i=0; i<100; i++)
 	{	
 		latitude[i]= Double.parseDouble(list.get(i).getLatitude());
 		longitude[i]= Double.parseDouble(list.get(i).getLongitude());		
