@@ -12,9 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.aischool.model.WebMember;
 import com.aischool.model.WebMemberDAO;
 
-/**
- * Servlet implementation class editService
- */
+
 @WebServlet("/editService")
 public class editService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -26,10 +24,10 @@ public class editService extends HttpServlet {
 		String pw = request.getParameter("pw");
 		String id = request.getParameter("id");
 		
+		
 		HttpSession session = request.getSession();
 		WebMember logindata = (WebMember)session.getAttribute("logindata");
-		String email = logindata.getEmail();
-		
+		String email = logindata.getEmail();	
 		
 		//기존 사용자 정보
 		WebMember member = new WebMember(email, pw, name, id);
@@ -43,10 +41,10 @@ public class editService extends HttpServlet {
         
         if(cnt > 0) {
         	session.setAttribute("logindata", member);//마이페이지로 이동
-        	response.sendRedirect("mainPage.jsp");
+        	response.sendRedirect("Mypage.jsp");
         }else {
         	request.setAttribute("errorMsg", "정보 업데이트에 실패했습니다.");
-            request.getRequestDispatcher("mainPage.jsp").forward(request, response); //회원정보수정페이지로 이동
+            request.getRequestDispatcher("modify.jsp").forward(request, response); //회원정보수정페이지로 이동
         }
 
 	}
