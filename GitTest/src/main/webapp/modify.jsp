@@ -100,9 +100,7 @@ WebMember member = (WebMember) session.getAttribute("logindata");
 				<div class="div4">
 					<button class="menu bucket">내가 담은 여행지</button>
 				</div>
-				<div class="div4">
-					<button class="menu correct">회원 정보 확인</button>
-				</div>
+
 				<div class="div4">
 					<button class="menu correct">개인정보수정</button>
 				</div>

@@ -1,6 +1,7 @@
-<%@page import="java.util.ArrayList"%>
 <%@page import="com.aischool.model.FirstScreenVO"%>
 <%@page import="com.aischool.model.FirstScreenDAO"%>
+<%@page import="java.util.ArrayList"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,7 +13,7 @@
 </head>
 <body>
 
-<button onclick="location.href='basket.jsp'">장바구니</button>
+<button onclick="location.href='Basket.jsp'">장바구니</button>
 <br><br>
 <button onclick="location.href='Schedule.jsp'">일정짜기</button>
 <br><br>
