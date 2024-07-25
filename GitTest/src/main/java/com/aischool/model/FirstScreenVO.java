@@ -14,7 +14,6 @@ public class FirstScreenVO {
 	private String address;
 	private String phone;
 	private String img;
-	
 
 	
 

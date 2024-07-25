@@ -85,7 +85,6 @@
 							</div>
 						</div>
 				</div>
-				 
 				<button class="register1">
 					<i class="register2">Login</i>
 				</button>

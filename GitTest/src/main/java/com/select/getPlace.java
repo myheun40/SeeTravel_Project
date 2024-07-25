@@ -32,6 +32,5 @@ public class getPlace extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("select.jsp");
 		rd.forward(request, response);
 
-
 	}
 }

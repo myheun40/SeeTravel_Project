@@ -99,16 +99,15 @@ public class FirstScreenDAO {
 	}
 
 	
-	public int update(WebMember member, String day1 ) {
+	public int update(WebMember member, String day1, int index ) {
 		
 				getConnection();
 				try { 
-					String sql = "INSERT INTO TRAVEL_LIST VALUES(?,?)";
-		
+					String sql = "INSERT INTO TRAVEL_LIST VALUES(?,?,?)";
 					psmt = conn.prepareStatement(sql);
 					psmt.setString(1, day1);
 					psmt.setString(2, member.getEmail());
-					
+					psmt.setInt(3, index);
 		
 					cnt = psmt.executeUpdate();
 				

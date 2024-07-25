@@ -88,9 +88,11 @@
             							<input type="hidden" value="<%=list.get(i).getLatitude()%>" name="lati">
 										<input type="hidden" value="<%=list.get(i).getLongitude()%>" name="long">
               							<input type="submit" value="<%=list.get(i).getLocationName()%>" name="place">
-              							<input type="button" onclick="func(<%=latitude[i]%>,<%=longitude[i]%>)" value="위치">
+
+              							<input type="button" onclick="func(<%=latitude[i]%>,<%=longitude[i]%>)" value="위치보기">
               							<div class="div"><%=list.get(i).getAddress()%></div>
-              							<div class="div"><%=list.get(i).getPhone()%></div>
+
+
             						</div>
           						</form>
           					</div>

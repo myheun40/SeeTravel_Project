@@ -25,15 +25,8 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 <link rel="stylesheet" href="design/modalpopup.css" />
 
 <script>
-function showDeletePopup() {
-    const errorMsg = '<%=errorMsg%>
-	'; // 서버에서 전달된 errorMsg를 가져옴
+	function showDeletePopup() {
 		document.getElementById('deleteModal').style.display = 'block';
-		if (errorMsg) {
-			document.querySelector('.error').style.display = 'block'; // errorMsg가 존재하면 에러 메시지를 표시
-		} else {
-			document.querySelector('.error').style.display = 'none'; // errorMsg가 없으면 에러 메시지를 숨김
-		}
 	}
 
 	function closePopup() {
@@ -42,15 +35,15 @@ function showDeletePopup() {
 
 	function deleteAccount(event) {
 		event.preventDefault();
-		const form = document.getElementById('deleteForm');
-		form.submit();
-	}
+		const form = document.getElementById('deleteForm');			//모달팝업(deleteform)을 가져와서 변수선언한다
+		form.submit();												//폼에 데이터를 전송한다.
+	}		
 
-	window.onclick = function(event) {
-		const modal = document.getElementById('deleteModal');
-		if (event.target == modal) {
-			modal.style.display = "none";
-		}
+	window.onclick = function(event) {								//window객체의 클릭했을때 이벤트를 설정하는 변수
+		const modal = document.getElementById('deleteModal');		//deletemodel을 가져와서 변수 modal에 저장
+		if (event.target == modal) {								//클릭된 요소가 modal요소와 동일 한지 확인
+			modal.style.display = "none";							//if조건이 참일 경우 modal의 속성을 none으로 설정하여 안보이게함
+		}															//정리하자면 모달팝업에서 확인/취소 누르면 모달팝업 사라지게하는 함수
 	}
 </script>
 
@@ -134,17 +127,30 @@ function showDeletePopup() {
 			class="shoe-print-icon" alt="" src="image/shoe-print.png">
 	</div>
 
-	<div id="deleteModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closePopup()">&times;</span>
-        <form id="deleteForm" action="deleteService" method="post" onsubmit="return deleteAccount(event)">
-            <p>현재 아이디: <span id="userId"><%= member.getEmail() %></span></p>
-            <p>비밀번호: <input type="password" id="password" name="pw" placeholder="비밀번호를 입력해주세요"></p>
-            <p class="error" style="display: none;" align="center"><%= errorMsg != null ? errorMsg : "" %></p>
-            <button type="submit">확인</button>
-            <button type="button" onclick="closePopup()">취소</button>
-        </form>
-   		 </div>
+	<div id="deleteModal" class="modal"
+		<%=(errorMsg != null) ? "style='display:block;'" : ""%>>
+		<div class="modal-content">
+			<span class="close" onclick="closePopup()">&times;</span>
+			<form id="deleteForm" action="deleteService" method="post"
+				onsubmit="return deleteAccount(event)">
+				<p>
+					현재 아이디: <span id="userId"><%=member.getEmail()%></span>
+				</p>
+				<p>
+					비밀번호: <input type="password" id="password" name="pw"
+						placeholder="비밀번호를 입력해주세요">
+				</p>
+				<%
+				if (errorMsg != null) {
+				%>
+				<p class="error" align="center"><%=errorMsg%></p>
+				<%
+				}
+				%>
+				<button type="submit">확인</button>
+				<button type="button" onclick="closePopup()">취소</button>
+			</form>
+		</div>
 	</div>
 
 </body>
