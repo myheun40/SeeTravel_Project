@@ -36,16 +36,15 @@
 
 <% for(int i=0 ;i< arr.size(); i++){ %>
 <form action="DeleteList.jsp" >
-	<input type="text" value="<%=arr.get(i)%>" name="text">
+	<input type="button" value="<%=arr.get(i)%>" name="text">
 	<input type="hidden" value="<%=latitude.get(i)%>" name="lati">
 	<input type="hidden" value="<%=longitude.get(i)%>" name="long">
 	<input type="submit" value="제거" name="place">
 	<br>  
 </form>
 <% } %> 
-<br>
-<button onclick="location.href='add.jsp'">돌아가기</button>
-<br>
 
+
+<button onclick="history.back()">돌아가기</button>
 </body>
 </html>
