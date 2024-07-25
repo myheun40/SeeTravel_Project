@@ -14,11 +14,7 @@
 </head>
 <body>	
 
-
-
 <h1>일정짜기</h1>
-
-
 
 <% 
 	request.setCharacterEncoding("UTF-8");
@@ -26,7 +22,8 @@
 	ArrayList<String> latitude = (ArrayList)session.getAttribute("latiList");
 	ArrayList<String> longitude = (ArrayList)session.getAttribute("longList");
 	ArrayList<String> array = (ArrayList)session.getAttribute("day1List");
-
+	String day1="일정: ";
+	
 	//세션에 ArrayList 등록
 	if(arr == null){
 		arr = new ArrayList<String>();
@@ -95,14 +92,23 @@
 
 	
 </script>  	
-<button onclick="func2()">저장하기</button>
+<br>
+	<form action="AddSchedule.jsp">
+		<select name="date">
+		    <option value="1">1일차</option>
+		    <option value="2">2일차</option>
+		    <option value="3">3일차</option>
+		    <option value="4">4일차</option>
+		</select>
+		<input type="hidden" value="<%=day1%>" name="list">
+		<input type="submit" value="일정 저장하기" name="submit">
+	</form>
 <br>
 
-<h2>일정</h2>
+
 
 <% 
 	
-	String day1="";
 	for(int i=0; i<array.size(); i++)
 	{
 		day1=day1+array.get(i)+" -> ";
@@ -111,21 +117,6 @@
 	out.println(day1);
 
 %>
-<script type="text/javascript">
-function func2()
-{
-	<%
-    WebMember member = (WebMember) session.getAttribute("logindata");
-    FirstScreenDAO dao = new FirstScreenDAO();
-
-	int cnt=dao.update(member,day1);
-	
-	%>
-	alert("저장 되었습니다.");
-	
-}
-
-</script>
 
 
 

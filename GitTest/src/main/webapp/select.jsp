@@ -1,3 +1,4 @@
+<%@page import="com.aischool.model.WebMember"%>
 <%@ page import="com.select.place_info" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.select.placeDAO" %>
@@ -8,6 +9,7 @@ String region = request.getParameter("region");
 placeDAO dao = new placeDAO();
 ArrayList<place_info> places = dao.getPlacesByRegion(region);
 request.setAttribute("places", places);
+WebMember member =  (WebMember) session.getAttribute("logindata");
 %>
 
 <!DOCTYPE html>
@@ -58,9 +60,21 @@ request.setAttribute("places", places);
 <body>
     <div class="header">
         <a href="main.jsp"><img class="logo-icon" alt="" src="./image/KakaoTalk_20240722_104503600.jpg"></a>
-        <div class="login">
-            <a href="login.jsp" style="color: white">로그인</a>
-        </div>
+        <%if (member == null){%>
+				<a href="login.jsp"><div class="login">
+						<div class="div3">로그인</div>
+					</div></a>
+				</div>
+				<%}else{%>
+				<a href="Mypage.jsp"><div class="mypage">
+						<div class="div3">마이페이지</div>
+					</div></a>
+				</div>
+				<a href="logout.jsp"><div class="logout">
+						<div class="div3">로그아웃</div>
+					</div></a>
+				</div>
+				<%}%>
     </div>
     
     <div class="image-1-parent">
