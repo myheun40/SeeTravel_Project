@@ -33,6 +33,14 @@
 
 
   <body>
+  <script>
+  	function select1(){
+  		let item1 = document.getElementById("item1");
+        item1.style.border = "3.5px var(--color-cadetblue-100) solid";
+  		console.log("Yanyang");
+  	}
+
+  </script>
     <div class="root">
       <header class="header">
         <div class="trip-planner">
@@ -124,8 +132,8 @@
                 <i class="destination">Travel Destination</i>
               </div>
               <div class="items">
-                <button>
-                <div class="item1">
+                <button onclick="select1()">
+                <div id= item1 class="item1">
                   <div class="yangyang">
                     <b class="yangyang1">YangYang</b>
                     <img
@@ -136,28 +144,28 @@
                     />
                   </div>
                 </div></button>
-                <button>
+                <button onclick="select2()">
                 <div class="item2">
                   <div class="busan">
                     <b class="busan1">Busan</b>
-                    <a href="" name=""><img
+                    <img
                       class="icon busan-icon"
                       loading="lazy"
                       alt="부산바다"
                       src="image/busan.png"
-                    /></a>
+                    />
                   </div>
                 </div></button>
-                <button>
+                <button onclick="select3()">
                 <div class="item3">
                   <div class="yeosu">
                     <b class="yeosu1">Yeosu</b>
-                    <a href="" name=""><img
+                    <img
                       class="icon yeosu-icon"
                       loading="lazy"
                       alt="여수바다"
                       src="image/yeosu.png"
-                    /></a>
+                    />
                   </div>
                 </div></button>
               </div>

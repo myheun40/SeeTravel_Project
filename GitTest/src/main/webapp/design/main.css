@@ -366,7 +366,7 @@
   .yangyang {
     display: flex;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-contecnt: flex-start;
   }
   .item1:hover{
     background-color: gray;
