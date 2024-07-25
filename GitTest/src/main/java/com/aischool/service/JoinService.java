@@ -30,18 +30,38 @@ public class JoinService extends HttpServlet {
 	    System.out.println("Received name: " + name);
 	    System.out.println("Received id: " + id);
 
-		WebMember member = new WebMember(email, pw, name, id);
-		
-		WebMemberDAO dao = new WebMemberDAO();
-		
-		int cnt = dao.memberJoin(member);
-		if(cnt > 0) {
-			RequestDispatcher dis = request.getRequestDispatcher("main.jsp");
-			dis.forward(request, response);
-		}else {
-			request.setAttribute("errorMsg", "중복된 이메일입니다.");
-            request.getRequestDispatcher("register.jsp").forward(request, response); 
-		}	
+	 // 모든 필드가 채워져 있는지 확인
+        if (name == null || id == null || email == null || pw == null ||
+            name.trim().isEmpty() || id.trim().isEmpty() || email.trim().isEmpty() || pw.trim().isEmpty()) {
+            request.setAttribute("errorMsg", "모든 항목을 입력해주세요.");
+            request.getRequestDispatcher("register.jsp").forward(request, response);
+            return;
+        }
+        
+        WebMemberDAO dao = new WebMemberDAO();
+        
+        // 이메일 중복 재확인
+        if (dao.checkEmailExists(email)) {
+            request.setAttribute("errorMsg", "이미 존재하는 이메일입니다.");
+            request.getRequestDispatcher("register.jsp").forward(request, response);
+            return;
+        }
+        
+        // 회원 정보 저장
+        WebMember member = new WebMember();
+        member.setName(name);
+        member.setId(id);
+        member.setEmail(email);
+        member.setPw(pw);
+        
+        boolean success = dao.checkEmailExists(member.getEmail());
+        
+        if (success) {
+            response.sendRedirect("login.jsp?message=회원가입이 완료되었습니다.");
+        } else {
+            request.setAttribute("errorMsg", "회원가입에 실패했습니다.");
+            request.getRequestDispatcher("register.jsp").forward(request, response);
+        }
 	}
 
 }

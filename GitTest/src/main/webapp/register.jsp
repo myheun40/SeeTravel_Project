@@ -25,17 +25,36 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 </head>
 
 <script>
-function checkEmail() {
-    var email = document.getElementById('email').value;
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            document.getElementById('emailResult').innerHTML = xhr.responseText;
-        }
-    };
-    xhr.open('GET', 'CheckEmailServlet?email=' + encodeURIComponent(email), true);
-    xhr.send();
-}
+	let isEmailChecked = false;
+	let isEmailAvailable = false;
+
+	function checkEmail() {
+		var email = document.getElementById('email').value;
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				var result = xhr.responseText;
+				document.getElementById('emailResult').innerHTML = result;
+				isEmailChecked = true;
+				isEmailAvailable = (result === "사용가능한 이메일입니다.");
+			}
+		};
+		xhr.open('GET', 'CheckEmailServlet?email=' + encodeURIComponent(email),
+				true);
+		xhr.send();
+	}
+
+	function validateForm() {
+		if (!isEmailChecked) {
+			alert("이메일 중복 확인을 해주세요.");
+			return false;
+		}
+		if (!isEmailAvailable) {
+			alert("사용 가능한 이메일을 입력해주세요.");
+			return false;
+		}
+		return true;
+	}
 </script>
 <body>
 
@@ -60,7 +79,8 @@ function checkEmail() {
 			<div class="parent">
 				<div class="div">회원가입</div>
 				<div class="input-form">
-					<form action="JoinService" method="post">
+					<form action="JoinService" method="post"
+						onsubmit="return validateForm()">
 						<div class="private">
 							<span class="agree">개인정보 제 3자 제공 동의 여부</span> <input
 								type="checkbox">
@@ -79,8 +99,8 @@ function checkEmail() {
 						</div>
 						<div class="input-parent">
 							<div class="input1">
-								<input class="input" type="text" name="email" id="email" required
-									placeholder="아이디로 사용할 E-mail 입력해주세요" >
+								<input class="input" type="text" name="email" id="email"
+									required placeholder="아이디로 사용할 E-mail 입력해주세요">
 							</div>
 							<i class="email txt">E-mail</i>
 						</div>
@@ -97,9 +117,10 @@ function checkEmail() {
 							</div>
 							<i class="pw1 txt">Password</i>
 						</div>
-						<button class="div1">
-							<span class="check" id = "emailResult" onclick = "checkEmail()" >중복확인</span>
+						<button class="div1" type="button" onclick="checkEmail()">
+							<span class="check">중복확인</span>
 						</button>
+						<span id="emailResult"></span>
 				</div>
 
 				<button class="register1" type="submit">
@@ -110,6 +131,6 @@ function checkEmail() {
 
 		</div>
 	</div>
-	
+
 </body>
 </html>
