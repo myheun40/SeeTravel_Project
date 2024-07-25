@@ -15,6 +15,7 @@ public class FirstScreenDAO {
 	private ResultSet rs;
 	private int cnt;
 
+
 	private void getConnection() {
 		// 0.드라이버 파일 프로젝트에 넣어주기
 		// 1.드라이버설치(드라이버 동적로딩)
@@ -68,7 +69,7 @@ public class FirstScreenDAO {
 		try {
 			
 			String sql = "SELECT PLACE_NAME, LATITUDE, LONGITUDE, PLACE_IMG, ADDRESS, PLACE_CONTACT FROM Yeosu "
-					+ "WHERE REGION='여수해상케이블카' and PLACE_TAG='카페'";
+					+ "WHERE REGION='여수해상케이블카' and PLACE_TAG='맛집'";
 
 			psmt = conn.prepareStatement(sql);
 		
@@ -101,8 +102,8 @@ public class FirstScreenDAO {
 	public int update(WebMember member, String day1 ) {
 		
 				getConnection();
-				try { // 3.sql문 작성 및 실행
-					String sql = "UPDATE TRAVEL_LIST SET TRAVEL_LIST=? WHERE id=?";
+				try { 
+					String sql = "INSERT INTO TRAVEL_LIST VALUES(?,?)";
 		
 					psmt = conn.prepareStatement(sql);
 					psmt.setString(1, day1);
@@ -110,6 +111,7 @@ public class FirstScreenDAO {
 					
 		
 					cnt = psmt.executeUpdate();
+				
 		
 			} catch (SQLException e) {
 					// TODO Auto-generated catch block

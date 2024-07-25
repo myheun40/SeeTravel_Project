@@ -36,11 +36,7 @@
 
     <div class="header">
         <div class="link-wrapper">
-              <div class="link">
-                    <div class="wrapper2">
-                          <a href="login.jsp"class="div3">로그인</a>
-                    </div>
-              </div>
+
         </div>
         <div class="header-inner">
               <div class="group-parent">
@@ -56,8 +52,9 @@
         </div>
         <a class="b14" href="Basket.jsp">내가 담은 여행지</a>
         <a href="main.jsp"><img class="logo-icon" alt="" src="image/KakaoTalk_20240722_104503600.jpg"></a>
-        
+        <a class="b15" href="Schedule.jsp">장소 확정하기</a>
         <div class="header-line"></div>
+        
         
   </div>
 
@@ -68,21 +65,7 @@
           					<b class="b">부산</b>
           					<b class="date">2024.08.07~2024.08.08</b>
         				</div>
-        				<div class="button">
-          					<button class="wrapper">
-            						<b class="b1">숙소</b>
-                            </button>
-        				</div>
 
-        				<button class="button1 wrapper">
-                                <b class="b1">식당</b>
-                        </button>
-        				<button class="button2 wrapper">
-            						<b class="b1">카페</b>
-                        </button>
-        				<button class="button3 wrapper">
-            						<b class="b4">관광명소</b>
-                        </button>
         				<div class="parent">
           					<b class="b5">거리순 </b>
           					<img class="icon-menu" alt="" src="image/menu.png">
@@ -105,6 +88,7 @@
             							<input type="hidden" value="<%=list.get(i).getLatitude()%>" name="lati">
 										<input type="hidden" value="<%=list.get(i).getLongitude()%>" name="long">
               							<input type="submit" value="<%=list.get(i).getLocationName()%>" name="place">
+              							<input type="button" onclick="func(<%=latitude[i]%>,<%=longitude[i]%>)" value="위치">
               							<div class="div"><%=list.get(i).getAddress()%></div>
               							<div class="div"><%=list.get(i).getPhone()%></div>
             						</div>
@@ -114,23 +98,23 @@
 							<% } %> 
         				</div>
 
-        				<div class="div2"> 더보기 </div>
+        				
       			</div>
-                  <button class="more"><img class="morebtnpng-icon" alt="" src="image/moreBtn.png.png"></button>
+                  
       			<div class="map" id="map" style="width:50%;height:400px;">
         				
       			</div>
                 
     		</div>
     		<div class="vector-parent">
-      			<button class="back"><img class="vector-icon2" alt="" src="image/back.png"></button>
-      			<b class="b12">뒤로 가기</b>
+      			
+      			
     		</div>
     		<div class="frame-parent">
       			<div class="wrapper1">
-        				<a class="b14" href="Schedule.jsp">장소 확정하기</a>
+        				
       			</div>
-      			<button class="front"><img class="vector-icon3" alt="" src="image/front.png"></button>
+      			
       			
     		</div>
     		
@@ -139,72 +123,30 @@
   	</div>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4f01ec291f2bda3241e8f86688fef41c"></script>
 <script>
-
-
-	var x= <%=latitude[0] %>;
-	var y= <%=longitude[0] %>;
-
-	
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-    mapOption = { 
-        center: new kakao.maps.LatLng(x, y), // 지도의 중심좌표
-        level: 7 // 지도의 확대 레벨
-    };
-
-	// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-	var map = new kakao.maps.Map(mapContainer, mapOption); 
+	mapOption = { 
+	    center: new kakao.maps.LatLng(<%=latitude[0]%>, <%=longitude[0]%>), // 지도의 중심좌표
+	    level: 7 // 지도의 확대 레벨
+	};
 	
-	// 마커를 표시할 위치와 title 객체 배열입니다 
-	var positions = [
-	    {
-	    	content: '<div><%=list.get(0).getLocationName()%></div>', 
-	        latlng: new kakao.maps.LatLng(<%=latitude[0] %>, <%=longitude[0] %>)
-	    },
-	    {
-	    	content: '<div><%=list.get(1).getLocationName()%></div>',  
-	        latlng: new kakao.maps.LatLng(<%=latitude[1] %>, <%=longitude[1] %>)
-	    },
-	    {
-	    	content: '<div><%=list.get(2).getLocationName()%></div>',  
-	        latlng: new kakao.maps.LatLng(<%=latitude[2] %>, <%=longitude[2] %>)
-	    }
-	 
-	];
-
-	// 마커 이미지의 이미지 주소입니다
-   
-	for (var i = 0; i < positions.length; i ++) {
-	    // 마커를 생성합니다
-	    var marker = new kakao.maps.Marker({
-	        map: map, // 마커를 표시할 지도
-	        position: positions[i].latlng // 마커의 위치
-	    });
-
-	    // 마커에 표시할 인포윈도우를 생성합니다 
-	    var infowindow = new kakao.maps.InfoWindow({
-	        content: positions[i].content // 인포윈도우에 표시할 내용
-	    });
-
-	    // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
-	    // 이벤트 리스너로는 클로저를 만들어 등록합니다 
-	    // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
-	    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
-	    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+	
+	
+	function func(a,b){
+		
+		//마커가 표시될 위치입니다 
+		var markerPosition  = new kakao.maps.LatLng(a, b); 
+		
+		//마커를 생성합니다
+		var marker = new kakao.maps.Marker({
+		position: markerPosition
+		});
+		
+		//마커가 지도 위에 표시되도록 설정합니다
+		marker.setMap(map);
 	}
 
-	// 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
-	function makeOverListener(map, marker, infowindow) {
-	    return function() {
-	        infowindow.open(map, marker);
-	    };
-	}
-
-	// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
-	function makeOutListener(infowindow) {
-	    return function() {
-	        infowindow.close();
-	    };
-	}  	
+	
 </script>  	
   	
   	
