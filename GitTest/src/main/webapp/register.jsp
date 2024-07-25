@@ -1,5 +1,10 @@
+<%@page import="com.aischool.model.WebMember"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<%
+String errorMsg = (String) request.getAttribute("errorMsg");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +23,20 @@
 <title>Register page</title>
 
 </head>
+
+<script>
+function checkEmail() {
+    var email = document.getElementById('email').value;
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            document.getElementById('emailResult').innerHTML = xhr.responseText;
+        }
+    };
+    xhr.open('GET', 'CheckEmailServlet?email=' + encodeURIComponent(email), true);
+    xhr.send();
+}
+</script>
 <body>
 
 	<div class="register">
@@ -27,7 +46,8 @@
 				src="image/KakaoTalk_20240722_104503600.jpg"></a>
 			<div class="right">
 				<div class="nav">
-					<span class="navTxt"><a href="main.jsp#plan"><u>여행 일정 만들기</u></a></span>
+					<span class="navTxt"><a href="main.jsp#plan"><u>여행
+								일정 만들기</u></a></span>
 				</div>
 				<a href="login.jsp"><div class="login">
 						<div class="div3">로그인</div>
@@ -40,14 +60,15 @@
 			<div class="parent">
 				<div class="div">회원가입</div>
 				<div class="input-form">
-					<form action="JoinService" mmethod="action">
+					<form action="JoinService" method="post">
 						<div class="private">
 							<span class="agree">개인정보 제 3자 제공 동의 여부</span> <input
 								type="checkbox">
 						</div>
 						<i class="name txt">Name</i>
 						<div class="inputName">
-							<input class="input" type="text" name="name" placeholder="이름을입력해주세요">
+							<input class="input" type="text" name="name"
+								placeholder="이름을입력해주세요">
 						</div>
 						<div class="name-parent">
 							<i class="name1">Nickname</i>
@@ -58,8 +79,8 @@
 						</div>
 						<div class="input-parent">
 							<div class="input1">
-								<input class="input" type="text" name="email"
-									placeholder="아이디로 사용할 E-mail 입력해주세요">
+								<input class="input" type="text" name="email" id="email" required
+									placeholder="아이디로 사용할 E-mail 입력해주세요" >
 							</div>
 							<i class="email txt">E-mail</i>
 						</div>
@@ -77,24 +98,18 @@
 							<i class="pw1 txt">Password</i>
 						</div>
 						<button class="div1">
-							<span class="check">중복확인</span>
+							<span class="check" id = "emailResult" onclick = "checkEmail()" >중복확인</span>
 						</button>
 				</div>
 
 				<button class="register1" type="submit">
 					<i class="register2">Register</i>
 				</button>
-
-
-
 			</div>
 			</form>
 
 		</div>
-
-
-
 	</div>
-
+	
 </body>
 </html>

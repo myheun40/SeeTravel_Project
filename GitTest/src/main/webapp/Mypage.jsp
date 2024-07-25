@@ -22,19 +22,26 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Noto Sans KR:wght@400&display=swap" />
 
-<link rel="stylesheet" href="design/popup.css" />
+<link rel="stylesheet" href="design/modalpopup.css" />
 
 <script>
-	function showDeletePopup() {
+function showDeletePopup() {
+    const errorMsg = '<%=errorMsg%>
+	'; // 서버에서 전달된 errorMsg를 가져옴
 		document.getElementById('deleteModal').style.display = 'block';
+		if (errorMsg) {
+			document.querySelector('.error').style.display = 'block'; // errorMsg가 존재하면 에러 메시지를 표시
+		} else {
+			document.querySelector('.error').style.display = 'none'; // errorMsg가 없으면 에러 메시지를 숨김
+		}
 	}
 
 	function closePopup() {
 		document.getElementById('deleteModal').style.display = 'none';
 	}
 
-	function deleteAccount() {
-		const password = document.getElementById('password').value;
+	function deleteAccount(event) {
+		event.preventDefault();
 		const form = document.getElementById('deleteForm');
 		form.submit();
 	}
@@ -128,23 +135,17 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 	</div>
 
 	<div id="deleteModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closePopup()">&times;</span>
-            <form id="deleteForm" action="deleteService" method="post">
-                <p>현재 아이디: <span id="userId">${logindata.email}</span></p>
-                <p>비밀번호: <input type="password" id="password" name="pw" placeholder="비밀번호를 입력해주세요"></p>
-                <% if (errorMsg != null) { %>
-             	<p class="error" align = "center"><%= errorMsg %></p>
-        		<% } %>
-                <button type="button" onclick="deleteAccount()">확인</button>
-                <button type="button" onclick="closePopup()">취소</button>
-            </form>
-        </div>
-    </div>
-
-
-
-
+    <div class="modal-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <form id="deleteForm" action="deleteService" method="post" onsubmit="return deleteAccount(event)">
+            <p>현재 아이디: <span id="userId"><%= member.getEmail() %></span></p>
+            <p>비밀번호: <input type="password" id="password" name="pw" placeholder="비밀번호를 입력해주세요"></p>
+            <p class="error" style="display: none;" align="center"><%= errorMsg != null ? errorMsg : "" %></p>
+            <button type="submit">확인</button>
+            <button type="button" onclick="closePopup()">취소</button>
+        </form>
+   		 </div>
+	</div>
 
 </body>
 </html>

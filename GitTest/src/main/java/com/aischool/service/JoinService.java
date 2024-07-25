@@ -39,7 +39,8 @@ public class JoinService extends HttpServlet {
 			RequestDispatcher dis = request.getRequestDispatcher("main.jsp");
 			dis.forward(request, response);
 		}else {
-			response.sendRedirect("register.jsp");
+			request.setAttribute("errorMsg", "중복된 이메일입니다.");
+            request.getRequestDispatcher("register.jsp").forward(request, response); 
 		}	
 	}
 

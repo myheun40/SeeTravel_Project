@@ -51,7 +51,6 @@ public class WebMemberDAO {
 	}
 
 	public int memberJoin(WebMember member) {
-
 		connect();
 		int cnt = 0;
 
@@ -74,13 +73,10 @@ public class WebMemberDAO {
 	}
 
 	public WebMember memberLogin(WebMember member) {
-
 		WebMember info = null;
-
 		connect();
-
-		String sql = "SELECT * FROM USERS WHERE EMAIL = ? AND PW = ?";
 		try {
+			String sql = "SELECT * FROM USERS WHERE EMAIL = ? AND PW = ?";
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, member.getEmail());
 			pst.setString(2, member.getPw());
@@ -89,7 +85,7 @@ public class WebMemberDAO {
 
 			if (rs.next()) {
 				String email = rs.getString("email");
-				String pw = rs. getString("pw");
+				String pw = rs.getString("pw");
 				String name = rs.getString("name");
 				String id = rs.getString("id");
 
@@ -108,42 +104,89 @@ public class WebMemberDAO {
 	public int memberDelete(String email, String pw) {
 		connect();
 		int cnt = 0;
-		
+
 		try {
 			String sql = "DELETE FROM USERS WHERE EMAIL = ? AND PW = ?";
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, email);
 			pst.setString(2, pw);
 			cnt = pst.executeUpdate();
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close();
 		}
 		return cnt;
-		
+
 	}
 
 	public int memberEdit(WebMember member) {
 		connect();
 		int cnt = 0;
-		
-		String sql = "UPDATE USERS SET PW = ?, NAME = ?, ID = ? WHERE EMAIL = ?";
+
 		try {
+			String sql = "UPDATE USERS SET PW = ?, NAME = ?, ID = ? WHERE EMAIL = ?";
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, member.getPw());
 			pst.setString(2, member.getName());
 			pst.setString(3, member.getId());
 			pst.setString(4, member.getEmail());
-			
+
 			cnt = pst.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close();
 		}
 		return cnt;
+	}
+
+	public boolean emailCheck(String email) throws SQLException {
+		boolean exists = false;
+		connect();
+
+		try {
+			String sql = "SELECT COUNT(*) FROM users WHERE email = ?";
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, email);
+			rs = pst.executeQuery();
+
+			if (rs.next()) {
+				exists = rs.getInt(1) > 0;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+
+		}
+
+		return exists;
+
+	}
+
+	public boolean checkEmailExists(String email) {
+
+		 boolean exists = false;
+		 connect();
+		    try {
+		    	 String sql = "SELECT COUNT(*) FROM USERS WHERE email = ?";
+		         pst = conn.prepareStatement(sql);
+		        
+		        pst.setString(1, email);
+		        rs = pst.executeQuery();
+		        
+		        if (rs.next()) {
+		            exists = rs.getInt(1) > 0;
+		        }
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }finally {
+		    	close();
+		    }
+		    
+		    return exists;
 	}
 
 }

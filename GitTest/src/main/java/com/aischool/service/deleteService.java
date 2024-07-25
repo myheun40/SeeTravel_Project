@@ -37,6 +37,7 @@ public class deleteService extends HttpServlet {
 		
 		int cnt = dao.memberDelete(email, pw);
 		
+		
 		if (cnt > 0 ) {
 			session.invalidate();
 			response.sendRedirect("main.jsp");
