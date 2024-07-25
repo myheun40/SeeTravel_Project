@@ -21,32 +21,36 @@ WebMember member =  (WebMember) session.getAttribute("logindata");
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arial:wght@400&display=swap" />
     <%
-    if (request.getAttribute("places") == null) {
+    if (places == null || places.isEmpty()) {
         response.sendRedirect("getPlace?region=busan"); // 기본값으로 'busan' 사용
         return;
     }
     %>
     <script type="text/javascript">
-    var currentIndex = 0;
+    var placesCount = 8;  // 총 아이템 수
+    var currentIndex = 0; // 현재 인덱스
 
-    function next() {
-        for (var i = currentIndex; i < currentIndex + 4; i++) {
-            document.querySelector('.option' + i).style.display = 'none';
-        }
+    function showItems(startIndex) {
+        var options = document.querySelectorAll('.option');
+        options.forEach(option => {
+            option.style.display = 'none';
+        });
 
-        currentIndex += 4;
-        if (currentIndex >= places.length) {
-            currentIndex = 0;
-        }
-
-        for (var i = currentIndex; i < currentIndex + 4 && i < places.length; i++) {
-            document.querySelector('.option' + i).style.display = 'block';
+        for (var i = startIndex; i < startIndex + 4 && i < options.length; i++) {
+            options[i].style.display = 'block';
         }
     }
 
+    function next() {
+        currentIndex += 4;
+        if (currentIndex >= placesCount) {
+            currentIndex = 0;
+        }
+        showItems(currentIndex);
+    }
+
     function openPopup(placeName) {
-    	console.log("placeName:", placeName);
-    	var width = 600;
+        var width = 600;
         var height = 400;
         var left = (screen.width - width) / 2;
         var top = (screen.height - height) / 2;
@@ -55,6 +59,10 @@ WebMember member =  (WebMember) session.getAttribute("logindata");
         var specs = "width=" + width + ",height=" + height + ",left=" + left + ",top=" + top + ",scrollbars=yes";
         window.open(url, name, specs);
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        showItems(currentIndex);
+    });
     </script>
 </head>
 <body>
@@ -85,6 +93,28 @@ WebMember member =  (WebMember) session.getAttribute("logindata");
             </div>
         </div>
         <div class="have-to-place">HAVE TO PLACE</div>
+        <div class="container">
+            <p class="div1">꼭 가고 싶은 주요 명소를 선택해주세요</p>
+            <div class="listbox">
+                <% for (int i = 0; i < 8 && i < places.size(); i++) { %>
+                    <div class="option option<%= i %>" style="display: none;">
+                        <div class="link" onclick="openPopup('<%= places.get(i).getPlace_Name() %>')">
+                            <img class="container-icon" alt="이미지" src="<%= places.get(i).getPlace_Img() %>">
+                            <img class="markersvg-icon" alt="마커" src="image/marker.svg.svg">
+                            <div class="div2"><%= places.get(i).getPlace_Name() %></div>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+            <div class="button-container">
+                <button onclick="next()" class="nav-button">
+                    <img class="nav-icon" alt="이전" src="image/prevBtn.png">
+                </button>
+                <button onclick="next()" class="nav-button">
+                    <img class="nav-icon" alt="다음" src="image/nextBtn.png">
+                </button>
+            </div>
+        </div>
     </div>
 
     <div class="list">
@@ -110,29 +140,6 @@ WebMember member =  (WebMember) session.getAttribute("logindata");
                     </div>
                 </a>
             </div>
-        </div>
-    </div>
-    
-    <div class="container">
-        <p class="div1">꼭 가고 싶은 주요 명소를 선택해주세요</p>
-        <div class="listbox">
-            <% for (int i = 0; i < places.size(); i++) { %>
-                <div class="option option<%= i %>" style="display:<%= i < 4 ? "block" : "none" %>;">
-                    <div class="link" onclick="openPopup('<%= places.get(i).getPlace_Name() %>')">
-                        <img class="container-icon" alt="" src="<%= places.get(i).getPlace_Img() %>">
-                        <img class="markersvg-icon" alt="" src="image/marker.svg.svg">
-                        <div class="div2"><%= places.get(i).getPlace_Name() %></div>
-                    </div>
-                </div>
-            <% } %>
-        </div>
-        <div class="button-container">
-            <button onclick="next()" class="nav-button">
-                <img class="nav-icon" alt="" src="image/prevBtn.png">
-            </button>
-            <button onclick="next()" class="nav-button">
-                <img class="nav-icon" alt="" src="image/nextBtn.png">
-            </button>
         </div>
     </div>
 </body>
