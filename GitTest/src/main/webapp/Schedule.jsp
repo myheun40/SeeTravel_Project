@@ -1,3 +1,5 @@
+<%@page import="com.aischool.model.WebMember"%>
+<%@page import="com.aischool.model.FirstScreenDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>    
@@ -9,12 +11,16 @@
 </head>
 <body>	
 <h1>일정짜기</h1>
+
 <% 
 	request.setCharacterEncoding("UTF-8");
 	ArrayList<String> arr = (ArrayList)session.getAttribute("locationList");
 	ArrayList<String> latitude = (ArrayList)session.getAttribute("latiList");
 	ArrayList<String> longitude = (ArrayList)session.getAttribute("longList");
 	ArrayList<String> array = (ArrayList)session.getAttribute("day1List");
+
+	
+	
 	//세션에 ArrayList 등록
 	if(arr == null){
 		arr = new ArrayList<String>();
@@ -32,6 +38,7 @@
 		array = new ArrayList<String>();
 		session.setAttribute("day1List", array);
 	}
+
 	
 	
 	
@@ -63,6 +70,12 @@
 
 	var a= <%=lati1[0]%>;
 	var b= <%=long1[0]%>;
+	var c=[];
+	
+	for(var i=0; i<10; i++)
+	{
+		c[i]= <%=lati1[0]%>;	
+	}
 
 	
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -74,7 +87,7 @@
 	// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
 	var map = new kakao.maps.Map(mapContainer, mapOption); 
 	
-	// 마커를 표시할 위치와 title 객체 배열입니다 
+
 	var positions = [
 	    {
 	    	content: '<div><%=arr.get(0)%></div>', 
@@ -133,15 +146,35 @@
 	
 </script>
 
+
+<button onclick="func()">일정 저장</button>
 <h2>1일차</h2>
+
+
 <% 
 	
+	String day1="";
 	for(int i=0; i<array.size(); i++)
 	{
-		out.println(array.get(i));	
-	}	
+		day1=day1+" "+array.get(i);
+	}
+	
+	out.println(day1);
 
 %>
+<script>
+	function func()
+	{	
+		<%
+	    WebMember member = (WebMember) session.getAttribute("logindata");
+	    FirstScreenDAO dao = new FirstScreenDAO();	
+		int cnt=dao.update(member, day1); 
+		%>
+		alert("일정 저장 완료.");
+	}
+
+</script>
+
 
 <h2>2일차</h2>
 
