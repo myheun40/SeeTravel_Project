@@ -59,12 +59,7 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 </head>
 <body>
 	<div class="frame5">
-
-		<img class="main-img1-icon" alt="" src="image/main_img1.jpg"> <b
-			class="nickname"><%=member.getId()%>님의 여행 기록</b> <img
-			class="shoe-print-icon" alt="" src="image/shoe-print.png">
-
-		<div class="header">
+			<div class="header">
 			<div class="nav">
 				<div class="div7">
 					<a href="main.jsp#plan" style="color: #20303c">여행 일정 만들기</a>
@@ -82,6 +77,11 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 					src="image/KakaoTalk_20240722_104503600.jpg"></a>
 			</div>
 		</div>
+		<img class="main-img1-icon" alt="" src="image/main_img1.jpg"> <b
+			class="nickname"><%=member.getId()%>님의 여행 기록</b> <img
+			class="shoe-print-icon" alt="" src="image/shoe-print.png">
+
+	
 		<div class="frame5-child"></div>
 		<div class="plan-content">
 			<div class="div">
@@ -137,7 +137,8 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 			</div>
 			<div class="sidemenu">
 				<div class="div4">
-					<button class="menu bucket">내가 담은 여행지</button>
+					<button class="menu bucket"
+						onclick="window.location.href='Mypage.jsp'">나의 여행 일정</button>
 				</div>
 
 				<div class="div4">
@@ -159,10 +160,10 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 			<form id="deleteForm" action="deleteService" method="post"
 				onsubmit="return deleteAccount(event)">
 				<p>
-					현재 아이디: <span id="userId"><%=member.getEmail()%></span>
+					정말 탈퇴하시겠습니까?  (현재 아이디: <span id="userId"><%=member.getEmail()%>)</span>
 				</p>
 				<p>
-					비밀번호: <input type="password" id="password" name="pw"
+					비밀번호 확인 : <input type="password" id="password" name="pw"
 						placeholder="비밀번호를 입력해주세요">
 				</p>
 				<%

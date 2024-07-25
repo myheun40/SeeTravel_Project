@@ -114,7 +114,8 @@ function showDeletePopup() {
 			</div>
 			<div class="sidemenu">
 				<div class="div4">
-					<button class="menu bucket">내가 담은 여행지</button>
+					<button class="menu bucket"
+						onclick="window.location.href='Mypage.jsp'">나의 여행 일정</button>
 				</div>
 
 				<div class="div4">
@@ -129,8 +130,8 @@ function showDeletePopup() {
 			</div>
 		</div>
 
-		<img class="main-img1-icon" alt="" src="image/main_img1.jpg"> <b
-			class="nickname"><%=member.getId()%>님의 여행 기록</b> <img
+		<img class="main-img1-icon" alt="" src="image/main_img1.jpg"> 
+		<b class="nickname"><%=member.getId()%>님의 여행 기록</b> <img
 			class="shoe-print-icon" alt="" src="image/shoe-print.png">
 	</div>
 
@@ -138,8 +139,8 @@ function showDeletePopup() {
     <div class="modal-content">
         <span class="close" onclick="closePopup()">&times;</span>
         <form id="deleteForm" action="deleteService" method="post" onsubmit="return deleteAccount(event)">
-            <p>현재 아이디: <span id="userId"><%= member.getEmail() %></span></p>
-            <p>비밀번호: <input type="password" id="password" name="pw" placeholder="비밀번호를 입력해주세요"></p>
+            <p>정말 탈퇴하시겠습니까?  (현재 아이디: <span id="userId"><%=member.getEmail()%>)</span></p>
+            <p>비밀번호 확인 : <input type="password" id="password" name="pw" placeholder="비밀번호를 입력해주세요"></p>
             <p class="error" style="display: none;" align="center"><%= errorMsg != null ? errorMsg : "" %></p>
             <button type="submit">확인</button>
             <button type="button" onclick="closePopup()">취소</button>

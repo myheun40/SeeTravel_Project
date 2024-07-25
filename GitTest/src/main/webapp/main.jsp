@@ -37,10 +37,27 @@
   
   	function select1(){
   		let item1 = document.getElementById("item1");
-        item1.style.border = "3.5px var(--color-cadetblue-100) solid";
+  		item1.style.border = "3.5px var(--color-cadetblue-100) solid";
   		console.log("Yanyang");
+		item2.style.border="white"
+		item3.style.border="white"
   	}
-
+  	
+  	function select2(){
+  		let item2 = document.getElementById("item2");
+        item2.style.border = "3.5px var(--color-cadetblue-100) solid";
+  		console.log("Busan");
+  		item1.style.border="white"
+  		item3.style.border="white"
+  	}
+  	
+  	function select3(){
+  		let item3 = document.getElementById("item3");
+        item3.style.border = "3.5px var(--color-cadetblue-100) solid";
+  		console.log("Yeosu");
+  		item1.style.border="white"
+  		item2.style.border="white"
+  	}
   </script>
     <div class="root">
       <header class="header">
@@ -95,8 +112,8 @@
       </section>
       <section class="main-content-parent">
         <div class="main-content">
-          <div class="travel-plan-parent">
-            <h1 class="travel-plan" id="plan">Travel Plan</h1>
+          <div id="plan" class="travel-plan-parent">
+            <h1 class="travel-plan" >Travel Plan</h1>
             <div class="div1">떠나고 싶은 여행 날짜와 지역을 선택하세요</div>
           </div>
         </div>
@@ -146,7 +163,7 @@
                   </div>
                 </div></button>
                 <button onclick="select2()">
-                <div class="item2">
+                <div id="item2" class="item2">
                   <div class="busan">
                     <b class="busan1">Busan</b>
                     <img
@@ -158,7 +175,7 @@
                   </div>
                 </div></button>
                 <button onclick="select3()">
-                <div class="item3">
+                <div id = "item3" class="item3">
                   <div class="yeosu">
                     <b class="yeosu1">Yeosu</b>
                     <img

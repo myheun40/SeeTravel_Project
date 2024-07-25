@@ -3,6 +3,7 @@ body {
     line-height: normal;
 }
 
+
 .line {
     position: absolute;
     top: 165px;
@@ -376,7 +377,7 @@ nav a:hover {
 .nickname {
     position: absolute;
     top: 191px;
-    left: 39px;
+    left: 120px;
     font-size: 50px;
     letter-spacing: -0.85px;
     line-height: 60px;
@@ -388,7 +389,7 @@ nav a:hover {
 .shoe-print-icon {
     position: absolute;
     top: 196px;
-    left: 585px;
+    left: 50px;
     width: 53px;
     height: 51px;
     overflow: hidden;
