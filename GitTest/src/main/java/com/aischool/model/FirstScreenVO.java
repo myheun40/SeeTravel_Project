@@ -11,6 +11,9 @@ public class FirstScreenVO {
 	private String latitude;
 	private String longitude;
 	private String location;
+	private String address;
+	private String phone;
+	private String img;
 	
 
 	
@@ -32,6 +35,16 @@ public class FirstScreenVO {
 		this.longitude= longitude;
 	}
 	
+	public FirstScreenVO(String locationName, String latitude, String longitude, String img, String address,
+			String phone) {
+		this.locationName = locationName;
+		this.latitude= latitude;
+		this.longitude= longitude;
+		this.img=img;
+		this.address=address;
+		this.phone=phone;
+		
+	}
 	public String getId() {
 		return id;
 	}
@@ -85,6 +98,25 @@ public class FirstScreenVO {
 	public void setLongitude(String longitude) {
 		this.longitude = longitude;
 	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
+
 
 	
 }

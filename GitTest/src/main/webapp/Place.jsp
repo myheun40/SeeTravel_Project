@@ -1,4 +1,5 @@
 <%@page import="com.aischool.model.FirstScreenVO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.aischool.model.FirstScreenDAO"%>
 <%@page import="java.util.ArrayList"%>
 
@@ -20,11 +21,11 @@
 <%
 	FirstScreenDAO dao = new FirstScreenDAO();
 	
-	ArrayList<FirstScreenVO> list = dao.YeosuList();
+	ArrayList<FirstScreenVO> list = dao.list();
 	double[] latitude= new double[list.size()];
 	double[] longitude= new double[list.size()];
 	
-	for(int i=0; i<100; i++)
+	for(int i=0; i<list.size(); i++)
 	{	
 		latitude[i]= Double.parseDouble(list.get(i).getLatitude());
 		longitude[i]= Double.parseDouble(list.get(i).getLongitude());		
@@ -64,18 +65,6 @@
 	    {
 	    	content: '<div><%=list.get(2).getLocationName()%></div>',  
 	        latlng: new kakao.maps.LatLng(<%=latitude[2] %>, <%=longitude[2] %>)
-	    },
-	    {
-	    	content: '<div><%=list.get(3).getLocationName()%></div>',  
-	        latlng: new kakao.maps.LatLng(<%=latitude[3] %>, <%=longitude[3] %>)
-	    },
-	    {
-	    	content: '<div><%=list.get(4).getLocationName()%></div>',  
-	        latlng: new kakao.maps.LatLng(<%=latitude[4] %>, <%=longitude[4] %>)
-	    },
-	    {
-	    	content: '<div><%=list.get(5).getLocationName()%></div>',  
-	        latlng: new kakao.maps.LatLng(<%=latitude[5] %>, <%=longitude[5] %>)
 	    }
 	 
 	];
