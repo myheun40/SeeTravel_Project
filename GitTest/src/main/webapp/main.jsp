@@ -34,6 +34,7 @@
 
   <body>
   <script>
+  
   	function select1(){
   		let item1 = document.getElementById("item1");
         item1.style.border = "3.5px var(--color-cadetblue-100) solid";
