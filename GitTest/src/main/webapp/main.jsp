@@ -92,16 +92,10 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 			<%
 			}
 			%>
-
-
-
 			<a href="main.jsp"><img
 				class="kakaotalk-20240722-104503600-2-icon" loading="lazy" alt="로고"
 				src="image/KakaoTalk_20240722_104503600.jpg" /></a>
-
 		</header>
-
-
 
 		<section class="left-sidebar">
 			<div class="main-img1-parent">
@@ -194,7 +188,5 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 		<section class="footer2"></section>
 	</div>
 
-
 </body>
-
 </html>
