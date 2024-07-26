@@ -27,7 +27,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Times New Roman:ital,wght@1,400&display=swap"
     />
-    <title>Main page</title>
+    <title>Main pa</title>
   </head>
 
 
