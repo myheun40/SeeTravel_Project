@@ -58,6 +58,9 @@ if (pl_info != null) {
         <% } else { %>
             <p>장소 정보를 불러올 수 없습니다.</p>
         <% } %>
+        
+        
+
         <div class="buttons">
             <button onclick="window.close()">더둘러보기</button>
         </div>
@@ -65,5 +68,6 @@ if (pl_info != null) {
             <button onclick="window.location.href='Schedule.jsp'">선택하기</button>
         </div>
     </div>
+
 </body>
 </html>
