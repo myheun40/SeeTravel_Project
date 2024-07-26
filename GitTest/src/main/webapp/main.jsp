@@ -154,7 +154,7 @@
                 <div id= item1 class="item1">
                   <div class="yangyang">
                     <b class="yangyang1">YangYang</b>
-                    <a href="select.jsp" name=""><img
+         			<img
                       class="icon yangyang-icon"
                       loading="lazy"
                       alt="양양바다"
@@ -191,7 +191,7 @@
               </div>
             </div>
           </div>
-          <button class="button-generate" onclick="location.href='add.jsp'">
+          <button class="button-generate" onclick="location.href='select.jsp'">
             <i class="generate">Generate</i>
           </button>
         </div>
