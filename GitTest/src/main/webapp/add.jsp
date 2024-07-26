@@ -18,10 +18,22 @@
   	
 </head>
 <body>
+<%! 	int pageNum=1; %>
+
+<script type="text/javascript">
+	function func2()
+	{
+		<%pageNum++;%>
+		location.replace('add.jsp');
+	}
+
+</script> 
+
 <%
+
 	FirstScreenDAO dao = new FirstScreenDAO();
 	
-	ArrayList<FirstScreenVO> list = dao.list();
+	ArrayList<FirstScreenVO> list = dao.list2(pageNum);
 	double[] latitude= new double[list.size()];
 	double[] longitude= new double[list.size()];
 	
@@ -82,16 +94,14 @@
         					<div class="content<%=i+1%>">
 								<form action="AddList.jsp" >
 	      						<div class="img">
-            							<img src="">
+            							<img src="<%=list.get(i).getImg()%>" width="133" height="85">
             						</div>
             						<div class="place-info">
             							<input type="hidden" value="<%=list.get(i).getLatitude()%>" name="lati">
 										<input type="hidden" value="<%=list.get(i).getLongitude()%>" name="long">
-              							<input type="submit" value="<%=list.get(i).getLocationName()%>" name="place">
-
+              							<input type="submit" value="<%=list.get(i).getLocationName()%>" name="place"> 
               							<input type="button" onclick="func(<%=latitude[i]%>,<%=longitude[i]%>)" value="위치보기">
-              							<div class="div"><%=list.get(i).getAddress()%></div>
-
+              							<div class="div"><%=list.get(i).getTag()%>: <%=list.get(i).getAddress()%></div>
 
             						</div>
           						</form>
@@ -110,9 +120,10 @@
     		</div>
     		<div class="vector-parent">
       			
-      			
+      			<button onclick="func2()">더 보기</button>
     		</div>
     		<div class="frame-parent">
+    			
       			<div class="wrapper1">
         				
       			</div>
@@ -128,7 +139,7 @@
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	mapOption = { 
 	    center: new kakao.maps.LatLng(<%=latitude[0]%>, <%=longitude[0]%>), // 지도의 중심좌표
-	    level: 7 // 지도의 확대 레벨
+	    level: 9 // 지도의 확대 레벨
 	};
 	
 	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
@@ -149,7 +160,9 @@
 	}
 
 	
-</script>  	
+</script>
+
+ 	
   	
   	
   	<script>

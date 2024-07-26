@@ -97,6 +97,47 @@ public class FirstScreenDAO {
 
 		return list;
 	}
+	
+	
+	public ArrayList<FirstScreenVO> list2(int pageNum) {
+		ArrayList<FirstScreenVO> list = new ArrayList<FirstScreenVO>();
+
+		getConnection();
+
+		try {
+			
+			String sql= "SELECT PLACE_NAME, LATITUDE, LONGITUDE, PLACE_IMG, ADDRESS, PLACE_TAG "
+					+ "FROM(SELECT ROWNUM RN, PLACE_NAME, LATITUDE, LONGITUDE, PLACE_IMG, ADDRESS, PLACE_TAG FROM Yeosu WHERE ROWNUM<= (? * 5))"
+					+ "WHERE RN > (?-1) * 5";
+
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, pageNum);
+			psmt.setInt(2, pageNum);
+		
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				String locationName = rs.getString(1);
+				String latitude = rs.getString(2);
+				String longitude = rs.getString(3);
+				String img = rs.getString(4);
+				String address = rs.getString(5);
+				String tag = rs.getString(6);
+
+				FirstScreenVO vo = new FirstScreenVO(locationName, latitude, longitude, img, address, tag);
+
+				list.add(vo);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+
+		return list;
+	}
 
 	
 	public int update(WebMember member, String day1, int index ) {
@@ -104,10 +145,12 @@ public class FirstScreenDAO {
 				getConnection();
 				try { 
 					String sql = "INSERT INTO TRAVEL_LIST VALUES(?,?,?)";
+		
 					psmt = conn.prepareStatement(sql);
 					psmt.setString(1, day1);
 					psmt.setString(2, member.getEmail());
 					psmt.setInt(3, index);
+					
 		
 					cnt = psmt.executeUpdate();
 				
@@ -121,6 +164,8 @@ public class FirstScreenDAO {
 
 				return cnt;
 			}
+	
+	
 	
 
 }
