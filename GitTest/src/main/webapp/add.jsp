@@ -74,8 +74,8 @@
     		<div class="body">
       			<div class="background">
         				<div class="title">
-          					<b class="b">부산</b>
-          					<b class="date">2024.08.07~2024.08.08</b>
+          					<b class="b">부산</b>							<!-- 해당 지역 이름 (부산,여수,양양) 출력 -->
+          					<b class="date">2024.08.07~2024.08.08</b>   <!-- 달력에서 선택한 날짜 출력 -->
         				</div>
 
         				<div class="parent">
