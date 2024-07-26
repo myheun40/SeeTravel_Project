@@ -32,6 +32,14 @@ if (pl_info != null) {
 <title>장소 정보</title>
 <link rel="stylesheet" href="design/popup.css" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" />
+<script type="text/javascript">
+    function selectPlace() {
+        if (window.opener) {
+            window.opener.location.href = 'add.jsp';
+            window.close();
+        }
+    }
+</script>
 </head>
 <body>
     <div class="popup-container">
@@ -62,9 +70,8 @@ if (pl_info != null) {
             <button onclick="window.close()">더둘러보기</button>
         </div>
         <div class="buttons">
-            <button onclick="window.location.href='add.jsp'">선택하기</button>
+            <button onclick="selectPlace()">선택하기</button>
         </div>
     </div>
 </body>
 </html>
-
