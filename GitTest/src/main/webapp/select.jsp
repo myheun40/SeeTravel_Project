@@ -84,7 +84,7 @@ WebMember member =  (WebMember) session.getAttribute("logindata");
 				</div>
 				<%}%>
     </div>
-    
+   
     <div class="image-1-parent">
         <img class="image-1-icon" alt="" src="image/main_img1.jpg">
         <div class="place">

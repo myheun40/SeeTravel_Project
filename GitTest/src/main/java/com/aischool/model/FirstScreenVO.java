@@ -14,6 +14,9 @@ public class FirstScreenVO {
 	private String address;
 	private String phone;
 	private String img;
+	private String tag;
+
+	
 
 	
 
@@ -35,13 +38,13 @@ public class FirstScreenVO {
 	}
 	
 	public FirstScreenVO(String locationName, String latitude, String longitude, String img, String address,
-			String phone) {
+			String tag) {
 		this.locationName = locationName;
 		this.latitude= latitude;
 		this.longitude= longitude;
 		this.img=img;
 		this.address=address;
-		this.phone=phone;
+		this.tag=tag;
 		
 	}
 	public String getId() {
@@ -115,7 +118,14 @@ public class FirstScreenVO {
 	public void setImg(String img) {
 		this.img = img;
 	}
+	public String getTag() {
+		return tag;
+	}
+	public void setTag(String tag) {
+		this.tag = tag;
+	}
 
 
 	
 }
+
