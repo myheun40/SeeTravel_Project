@@ -144,14 +144,7 @@ WebMember member =  (WebMember) session.getAttribute("logindata");
 
             <div class="container">
          <p class="div1">꼭 가고 싶은 주요 명소를 선택해주세요</p>
-                    <div class="button-container">
-                <button onclick="next()" class="nav-button">
-                    <img class="nav-icon" alt="이전" src="image/prevBtn.png.png">
-                </button>
-                <button onclick="next()" class="nav-button">
-                    <img class="nav-icon" alt="다음" src="image/nextBtn.png.png">
-                </button>
-            </div>
+                   
            
             <div class="listbox">
                 <% for (int i = 0; i < 8 && i < places.size(); i++) { %>
@@ -166,5 +159,13 @@ WebMember member =  (WebMember) session.getAttribute("logindata");
             </div>
 
         </div>
+         <div class="button-container">
+                <button onclick="next()" class="nav-button">
+                    <img class="nav-icon" alt="이전" src="image/prevBtn.png.png">
+                </button>
+                <button onclick="next()" class="nav-button">
+                    <img class="nav-icon" alt="다음" src="image/nextBtn.png.png">
+                </button>
+            </div>
 </body>
 </html>

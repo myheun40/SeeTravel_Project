@@ -292,6 +292,7 @@ html,body {
     align-items: center;
     height: 24px;
     flex-shrink: 0;
+	width:400px;
 }
 .place-info {
     position: absolute;

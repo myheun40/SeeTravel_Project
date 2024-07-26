@@ -6,6 +6,13 @@ body {
     background-color: #f9f9f9;
 }
 
+.button{
+	border:none;
+	padding:10px;
+	border-radius:3%;
+	background-color:#176779;
+	color:white;
+}
 .popup-container {
     padding: 20px;
     text-align: center;
