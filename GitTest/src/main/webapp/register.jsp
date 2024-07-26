@@ -25,6 +25,7 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 </head>
 
 <script>
+	
 	let isEmailChecked = false;
 	let isEmailAvailable = false;
 
@@ -55,6 +56,8 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 		}
 		return true;
 	}
+	
+	
 </script>
 <body>
 
@@ -122,7 +125,7 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 						</button>
 						<span id="emailResult"></span>
 				</div>
-
+				
 				<button class="register1" type="submit">
 					<i class="register2">Register</i>
 				</button>

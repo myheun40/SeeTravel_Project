@@ -17,13 +17,15 @@ public class CheckEmailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/plain");
+        response.setCharacterEncoding("UTF-8");
+		
 		String email = request.getParameter("email");
         WebMemberDAO dao = new WebMemberDAO();
         
         boolean isEmailExists = dao.checkEmailExists(email);
         
-        response.setContentType("text/plain");
-        response.setCharacterEncoding("UTF-8");
+        
         
         if (isEmailExists) {
             response.getWriter().write("이미 존재하는 이메일입니다.");

@@ -1,8 +1,8 @@
 package com.aischool.service;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,23 +14,17 @@ import com.aischool.model.WebMemberDAO;
 
 @WebServlet("/JoinService")
 public class JoinService extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		request.setCharacterEncoding("UTF-8");
-		
-		String email = request.getParameter("email");
-		String pw = request.getParameter("pw");
-		String name = request.getParameter("name");
-		String id = request.getParameter("id");
-		
-	    System.out.println("Received email: " + email);
-	    System.out.println("Received password: " + pw);
-	    System.out.println("Received name: " + name);
-	    System.out.println("Received id: " + id);
-
-	 // 모든 필드가 채워져 있는지 확인
+    private static final long serialVersionUID = 1L;
+    
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        
+        String email = request.getParameter("email");
+        String pw = request.getParameter("pw");
+        String name = request.getParameter("name");
+        String id = request.getParameter("id");
+        
+        // 모든 필드가 채워져 있는지 확인
         if (name == null || id == null || email == null || pw == null ||
             name.trim().isEmpty() || id.trim().isEmpty() || email.trim().isEmpty() || pw.trim().isEmpty()) {
             request.setAttribute("errorMsg", "모든 항목을 입력해주세요.");
@@ -54,14 +48,16 @@ public class JoinService extends HttpServlet {
         member.setEmail(email);
         member.setPw(pw);
         
-        boolean success = dao.checkEmailExists(member.getEmail());
+
+        int result = dao.memberJoin(member);  // 회원 정보 저장
         
-        if (success) {
-            response.sendRedirect("login.jsp?message=회원가입이 완료되었습니다.");
-        } else {
+        if (result > 0) {  // 저장 성공
+            // main.jsp로 리다이렉트하며 성공 메시지 전달
+            response.sendRedirect("main.jsp?message=" + URLEncoder.encode("회원가입이 완료되었습니다.", "UTF-8"));
+        } else {  // 저장 실패
             request.setAttribute("errorMsg", "회원가입에 실패했습니다.");
             request.getRequestDispatcher("register.jsp").forward(request, response);
         }
-	}
+    }
 
 }
