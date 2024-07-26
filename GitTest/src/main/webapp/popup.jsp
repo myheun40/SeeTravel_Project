@@ -62,7 +62,7 @@ if (pl_info != null) {
             <button onclick="window.close()">더둘러보기</button>
         </div>
         <div class="buttons">
-            <button onclick="window.location.href='Schedule.jsp'">선택하기</button>
+            <button onclick="window.location.href='add.jsp'">선택하기</button>
         </div>
     </div>
 </body>
