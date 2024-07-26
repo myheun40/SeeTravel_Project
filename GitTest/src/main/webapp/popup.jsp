@@ -66,11 +66,9 @@ if (pl_info != null) {
         <% } else { %>
             <p>장소 정보를 불러올 수 없습니다.</p>
         <% } %>
-        <div class="buttons">
-            <button onclick="window.close()">더둘러보기</button>
-        </div>
-        <div class="buttons">
-            <button onclick="selectPlace()">선택하기</button>
+        <div class="buttons-container">
+            <button class="button" onclick="window.close()">더둘러보기</button>
+            <button class="button" onclick="selectPlace()">선택하기</button>
         </div>
     </div>
 </body>
