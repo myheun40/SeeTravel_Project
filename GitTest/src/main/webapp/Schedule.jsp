@@ -97,7 +97,7 @@
                     	}                   
                     }
                 %>
-                <p><% if (day1==""){
+                <p id="day"><% if (day1==""){
                 	out.print("일정을 추가해주세요.");
                 	}else out.print(day1);%>
                 </p>
@@ -115,7 +115,12 @@
                     <input type="hidden" name="scheduleNumber" value="<%= Schedule_number %>">
                     <input type="hidden" name="scheduleList" value="<%= day1 %>">
                     <button type="submit" class="save-schedule">일정 저장하기</button>
+                    <button class="save-schedule" onclick="clear">초기화</button>
+                   <script> function clear(){
+        	String p = document.getElementById('day');
+        	p.innerText = "일정을 추가해주세요";</script>
                 </form>
+                
             </div>
         </div>
         
@@ -143,6 +148,7 @@
             });
             marker.setMap(map);
         }
+       
     </script>
 </body>
 </html>
