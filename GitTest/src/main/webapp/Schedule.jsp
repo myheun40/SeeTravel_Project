@@ -29,7 +29,9 @@
 
     <div class="container">
     	<div class="schedule-container">
-            <h1>일정별 장소 확정하기</h1>
+            <h1 style="color: #0f5577; margin-bottom:2px;" >일정별 장소 확정하기</h1>
+            <h3 style="color: #0f5577">내가 담은 여행지 목록</h3>
+            
 
             <div class="location-list">
                 <%
@@ -74,29 +76,37 @@
                     <div class="location-item">
                         <span><%= arr.get(i) %></span>
                         <div>
+                        	<button class="view-location" onclick="func(<%= lati1[i] %>, <%= long1[i] %>)">위치보기</button>
                             <form action="Day1.jsp" method="get" style="display: inline;">
                                 <button type="submit" class="add-schedule" name="day1" value="<%= arr.get(i) %>">일정 추가</button>
                             </form>
-                            <button class="view-location" onclick="func(<%= lati1[i] %>, <%= long1[i] %>)">위치보기</button>
                         </div>
                     </div>
                 <% } %>
             </div>
 
             <div class="current-schedule">
-                <h3>현재 일자 코스:</h3>
+                <h3 style="margin-bottom:3px;">  현재 일정 코스보기</h3>
                 <%
                     String day1 = "";
                     for (int i = 0; i < array.size(); i++) {
-                        day1 += array.get(i) + " -> ";
+                    	if (i==array.size()-1){
+                    		day1 += array.get(i);
+                    	}else{
+                    		day1 += array.get(i) + " ➡ ";
+                    	}                   
                     }
                 %>
-                <p><%= day1 %></p>
+                <p><% if (day1==""){
+                	out.print("일정을 추가해주세요.");
+                	}else out.print(day1);%>
+                </p>
             </div>
 
             <div class="schedule-form">
+                       
                 <form action="AddSchedule.jsp" method="get">
-                    <select name="date">
+                     <select name="date">
                         <option value="1">1일차</option>
                         <option value="2">2일차</option>
                         <option value="3">3일차</option>
