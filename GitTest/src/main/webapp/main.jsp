@@ -140,7 +140,7 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 						<div class="date-bar">
 							<div class="date-buttons">
 								<i class="startdate">Travel Start Date</i>
-								<form id="dateForm" action="saveDates">
+								<form id="dateForm" action="saveDate">
 								<div class="date-box">
 									<img class="button-date-icon" alt="달력" src="image/Vector.png" />
 									<input
@@ -150,7 +150,7 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 							</div>
 							<div class="date-buttons1">
 								<i class="enddate">Travel End Date</i>
-								<form id="dateForm" action="saveDates">
+								<form id="dateForm" action="saveDate">
 								<div class="date-box">
 									<img class="button-date-icon" alt="달력" src="image/Vector.png" />
 									<input

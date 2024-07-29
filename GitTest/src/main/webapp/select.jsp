@@ -112,21 +112,21 @@ WebMember member =  (WebMember) session.getAttribute("logindata");
         <img class="image-1-icon" alt="" src="image/main_img1.jpg">
             <div class="list">
         <div class="item-link">
-            <a href="getPlace?region=Busan">
+            <a href="getPlace?region=BUSAN">
                 <div class="frame">
                     <div class="div10">부 산</div>
                 </div>
             </a>
         </div>
         <div class="item-link1">
-            <a href="getPlace?region=Yangyang">
+            <a href="getPlace?region=YangYang">
                 <div class="frame-div">
                     <div class="div11">양 양</div>
                 </div>
             </a>
         </div>
         <div class="item-link2">
-                <a href="getPlace?region=Yeosu">
+                <a href="getPlace?region=YEOSU">
                     <div class="wrapper1">
                         <div class="div10">여 수</div>
                     </div>

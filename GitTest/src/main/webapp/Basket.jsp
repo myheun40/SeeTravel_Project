@@ -3,8 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <% WebMember member =  (WebMember) session.getAttribute("logindata");
-String start = request.getParameter("start");
-String end = request.getParameter("end");
+
 %>
 <!DOCTYPE html>
 <html>
@@ -51,7 +50,7 @@ String end = request.getParameter("end");
                 
                 <b class="b"><%=region %>, <%=placeName %> 중심</b>
                 <img class="vector-icon" alt="" src="image/mark.png"><br>
-                <b class="date"><%=start %> ~ <%=end %></b>
+                <b class="date"></b>
             </div>
             <br>
             <b class="list-title">내가 담은 여행지 목록</b>

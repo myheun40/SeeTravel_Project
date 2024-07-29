@@ -333,7 +333,8 @@
   	color:gray;
   	font-size:14px;
   	font-family: system-ui;
-  	width:200px;  	
+  	width:250px;
+  	padding:0px 10px;	
   }
   .destination {
     position: relative;

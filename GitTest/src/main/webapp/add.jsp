@@ -6,8 +6,6 @@
     pageEncoding="UTF-8"%>
     
 <% WebMember member =  (WebMember) session.getAttribute("logindata");
-	String start = request.getParameter("start");
-	String end = request.getParameter("end");
 %>
 <!DOCTYPE html>
 <html>
@@ -85,7 +83,7 @@
       			<div class="background">
         				<div class="title">
           					<b id="b" class="b"><%=region%></b>		
-          					<b class="date"><%=start %> ~ <%=end %></b>										
+          					<b class="date"></b>										
         				</div>	
         				
         				<div class="parent">
@@ -94,12 +92,12 @@
           					
         				</div>
         				 <img class="vector-icon" alt="" src="image/mark.png">
-        				<b class="b6"><%=placeName%> 근처</b>
+        				<b class="b6"><%=placeName%> 근처 추천 여행지</b>
 						
 			<div class="vector-parent">
       			
       			<button class="more" onclick="func2()">
-      			<img src="image/moreBtn.png.png" alt="" style="height:12px;"> 더 보기</button>
+      			<img src="image/moreBtn.png.png" alt="" style="height:12px;">장소 더보기</button>
     		</div>
         				
         				<div class="contentbox">
