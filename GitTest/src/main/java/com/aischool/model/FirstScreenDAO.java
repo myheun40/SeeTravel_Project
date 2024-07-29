@@ -107,7 +107,47 @@ public class FirstScreenDAO {
 		try {
 			
 			String sql= "SELECT PLACE_NAME, LATITUDE, LONGITUDE, PLACE_IMG, ADDRESS, PLACE_TAG "
-					+ "FROM(SELECT ROWNUM RN, PLACE_NAME, LATITUDE, LONGITUDE, PLACE_IMG, ADDRESS, PLACE_TAG FROM Yeosu WHERE ROWNUM<= (? * 5))"
+					+ "FROM(SELECT ROWNUM RN, PLACE_NAME, LATITUDE, LONGITUDE, PLACE_IMG, ADDRESS, PLACE_TAG FROM BUSAN WHERE ROWNUM<= (? * 5))"
+					+ "WHERE RN > (?-1) * 5";
+
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, pageNum);
+			psmt.setInt(2, pageNum);
+		
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				String locationName = rs.getString(1);
+				String latitude = rs.getString(2);
+				String longitude = rs.getString(3);
+				String img = rs.getString(4);
+				String address = rs.getString(5);
+				String tag = rs.getString(6);
+
+				FirstScreenVO vo = new FirstScreenVO(locationName, latitude, longitude, img, address, tag);
+
+				list.add(vo);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+
+		return list;
+	}
+	
+	public ArrayList<FirstScreenVO> list3(int pageNum, String region) {
+		ArrayList<FirstScreenVO> list = new ArrayList<FirstScreenVO>();
+
+		getConnection();
+
+		try {
+			
+			String sql= "SELECT PLACE_NAME, LATITUDE, LONGITUDE, PLACE_IMG, ADDRESS, PLACE_TAG "
+					+ "FROM(SELECT ROWNUM RN, PLACE_NAME, LATITUDE, LONGITUDE, PLACE_IMG, ADDRESS, PLACE_TAG FROM " + region + " WHERE ROWNUM<= (? * 5))"
 					+ "WHERE RN > (?-1) * 5";
 
 			psmt = conn.prepareStatement(sql);
