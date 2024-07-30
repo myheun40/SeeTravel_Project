@@ -40,7 +40,7 @@ if (pl_info != null) {
     function selectPlace() {   	
     	<%
     		session.setAttribute("region", region);
-    		session.setAttribute("placeName", placeName);    		
+    		session.setAttribute("placeName", placeName);  
     	%>
 
         if (window.opener) {

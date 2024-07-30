@@ -7,12 +7,14 @@
 	pageEncoding="UTF-8"%>
 
 <%
+
 WebMember member = (WebMember) session.getAttribute("logindata");
 String errorMsg = (String) request.getAttribute("errorMsg");
 
 FirstScreenDAO dao = new FirstScreenDAO();
-ArrayList<FirstScreenVO> list = dao.list(member);
-ArrayList<FirstScreenVO> list2 = dao.list2(member);
+ArrayList<FirstScreenVO> list = dao.list(member,0);
+int Schedule_number = dao.count(member);
+
 %>
 
 
@@ -83,26 +85,25 @@ ArrayList<FirstScreenVO> list2 = dao.list2(member);
 				<b class="b">나의 일정</b>
 			</div>
 			<div class="content-box">
+				<% for(int j=1 ;j<=Schedule_number; j++){ 
 				
-				<div class="item">
+					list = dao.list(member, j);
+				%>
+				
+				<div class="item" id="item<%=j%>">
+					<b class="plan-title"><%=j %>번째 여행 일정</b>
 					<img class="jpg-icon" alt="" src="image/해운대.jfif"> 		
 					<img class="image-icon" alt="" src="image/marker.svg.svg">
 					<div class="button">
 					<% for(int i=0 ;i<list.size(); i++){ %>
-						<p><%=list.get(i).getDateIndex()%>일차: <%=list.get(i).getTravelList()%>
+						<span style="padding:10px;"><%=list.get(i).getDateIndex()%>일차: <%=list.get(i).getTravelList()%></span>
 					<% } %> 	
 					</div>
+					<button class="delete" onclick="">일정삭제</button>
 				</div>
-				<div class="item">
-					<img class="jpg-icon" alt="" src="image/해운대.jfif"> 		
-					<img class="image-icon" alt="" src="image/marker.svg.svg">
-					<div class="button">
-					<% for(int i=0 ;i<list2.size(); i++){ %>
-						<p><%=list2.get(i).getDateIndex()%>일차: <%=list2.get(i).getTravelList()%>
-					<% } %> 	
-					</div>
-				</div>
-					
+				
+				<% } %> 	
+
 			</div>
 		</div>
 

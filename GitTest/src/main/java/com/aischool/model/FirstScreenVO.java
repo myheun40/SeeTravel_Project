@@ -46,6 +46,11 @@ public class FirstScreenVO {
 	}
 
 	
+	public FirstScreenVO(String latitude, String longitude) {
+		this.latitude= latitude;
+		this.longitude= longitude;
+	}
+
 	public String getEmail() {
 		return email;
 	}

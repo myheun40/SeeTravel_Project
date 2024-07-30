@@ -1,3 +1,4 @@
+<%@page import="com.aischool.model.FirstScreenDAO"%>
 <%@page import="com.aischool.model.WebMember"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -21,6 +22,17 @@
 	String region = (String)session.getAttribute("region");
 	String placeName = (String)session.getAttribute("placeName");
 %>
+<script type="text/javascript">
+	function func()
+	{
+		<%
+		    FirstScreenDAO dao = new FirstScreenDAO();
+			int cnt = dao.updateCount(member);
+		%>
+		location.replace('Schedule.jsp');
+	}
+
+</script>
 <div class="header">
 
     <a href="main.jsp"><img class="logo-icon" alt="" src="image/KakaoTalk_20240722_104503600.jpg"></a>
@@ -93,7 +105,7 @@
                 </div>
             <% } %>
         </div>
-        <button class="wrapper1" onclick="location.href='Schedule.jsp'">일정별 장소 확정하기</button>
+        <button class="wrapper1" onclick="func()">일정별 장소 확정하기</button>
         <button onclick="location.href='add.jsp'" class="back-button">장소 더 추가하기</button>
     </div>
 </div>

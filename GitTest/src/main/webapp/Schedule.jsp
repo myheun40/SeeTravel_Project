@@ -119,6 +119,7 @@
                    <script> function clear(){
         	String p = document.getElementById('day');
         	p.innerText = "일정을 추가해주세요";
+        	return false
         	</script>
                 </form>
                 

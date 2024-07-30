@@ -90,14 +90,14 @@ public class FirstScreenDAO {
 	}
 	
 	
-	public ArrayList<FirstScreenVO> list(WebMember member) {
+	public ArrayList<FirstScreenVO> list(WebMember member, int num) {
 		ArrayList<FirstScreenVO> list = new ArrayList<FirstScreenVO>();
 
 		getConnection();
 
 		try {
 			
-			String sql= "SELECT TRAVEL_LIST, LIST_INDEX, SCHEDULE_INDEX FROM TRAVEL_LIST WHERE SCHEDULE_INDEX=1 and EMAIL=?";
+			String sql= "SELECT TRAVEL_LIST, LIST_INDEX, SCHEDULE_INDEX FROM TRAVEL_LIST WHERE SCHEDULE_INDEX= " + num + " and EMAIL=?";
 
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, member.getEmail());
@@ -124,39 +124,6 @@ public class FirstScreenDAO {
 		return list;
 	}
 	
-	public ArrayList<FirstScreenVO> list2(WebMember member) {
-		ArrayList<FirstScreenVO> list = new ArrayList<FirstScreenVO>();
-
-		getConnection();
-
-		try {
-			
-			String sql= "SELECT TRAVEL_LIST, LIST_INDEX, SCHEDULE_INDEX FROM TRAVEL_LIST WHERE SCHEDULE_INDEX=2 and EMAIL=?";
-
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, member.getEmail());
-			rs = psmt.executeQuery();
-
-			while (rs.next()) {
-				String TravelList = rs.getString(1);
-				int DateIndex = rs.getInt(2);
-				int ScheduleIndex = rs.getInt(3);
-
-
-				FirstScreenVO vo = new FirstScreenVO(TravelList, DateIndex, ScheduleIndex);
-
-				list.add(vo);
-			}
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-
-		return list;
-	}
 	
 	
 	
@@ -187,6 +154,39 @@ public class FirstScreenDAO {
 
 				FirstScreenVO vo = new FirstScreenVO(locationName, latitude, longitude, img, address, tag);
 
+				list.add(vo);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+
+		return list;
+	}
+	
+	
+	public ArrayList<FirstScreenVO> place(String region, String place) {
+		ArrayList<FirstScreenVO> list = new ArrayList<FirstScreenVO>();
+
+		getConnection();
+
+		try {
+			
+			String sql= "SELECT LATITUDE, LONGITUDE FROM "+ region +" WHERE PLACE_NAME=? ";
+
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, place);		
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				String latitude = rs.getString(1);
+				String longitude = rs.getString(2);
+
+
+				FirstScreenVO vo = new FirstScreenVO(latitude, longitude);
 				list.add(vo);
 			}
 
