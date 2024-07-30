@@ -118,7 +118,8 @@
                     <button class="save-schedule" onclick="clear">초기화</button>
                    <script> function clear(){
         	String p = document.getElementById('day');
-        	p.innerText = "일정을 추가해주세요";</script>
+        	p.innerText = "일정을 추가해주세요";
+        	</script>
                 </form>
                 
             </div>
