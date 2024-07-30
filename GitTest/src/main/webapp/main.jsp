@@ -21,7 +21,7 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 	href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Times New Roman:ital,wght@1,400&display=swap" />
-<title>Main page</title>
+<title>Main page-</title>
 <script>
 	function goToSelect() {
 		let selectedRegion = 'BUSAN'; // 기본값
