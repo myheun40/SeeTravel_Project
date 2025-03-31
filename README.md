@@ -1,22 +1,22 @@
-# 📎 집가고싶다..(팀명: 힘들조)
-![image](https://user-images.githubusercontent.com/25995055/178401309-2a2ffc86-ef45-439b-bfd8-6978312100bc.png)
-<img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=Kotlin&logoColor=white"/>
+a# 📎 See원한 프로젝트 소개 
+![메인페이지](https://github.com/user-attachments/assets/2ab5fb0f-8b8f-4a42-a0cf-25d8a28ecf14)
 
 ## 👀 서비스 소개
-* 서비스명:  꽃 개화 시기별 우리 지역 근처 데이트/드라이브 추천 장소 및 꽃 축제 추천 
-* 서비스설명: 
+![See logo](https://github.com/user-attachments/assets/27eb7e45-b05e-48cf-b4c9-c6bb76a824ac)
+* 서비스명:  See원한바다
+* 서비스설명: KNN 알고리즘 활용 뚜벅이들을 위한 국내 바다여행지 추천 웹 서비스
 <br>
 
 ## 📅 프로젝트 기간
-2022.04.22 ~ 2022.06.03 (6주)
+2024년 7월 19일 ~ 2024년 8월 2일 (2주)
 <br>
 
 ## ⭐ 주요 기능
-* 기능1
-* 기능2
-* 기능3
-* 기능4
-* 기능5
+* 기능1. 부산, 여수, 양양 국내 바다여행지 추천
+* 기능2. 여행지 주요명소 선택
+* 기능3. 도보로 여행하기 좋은 숙소, 맛집, 카페 추천
+* 기능4. 여행 도보 경로 확인
+* 기능5. 여행 경로 저장
 <br>
 
 ## ⛏ 기술스택
@@ -44,9 +44,8 @@
     <tr>
         <td>개발도구</td>
         <td>
+            <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=Figma&logoColor=white"/>
             <img src="https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=Eclipse&logoColor=white"/>
-            <img src="https://img.shields.io/badge/RaskpberryPi-A22846?style=for-the-badge&logo=RaskpberryPi&logoColor=white"/>
-            <img src="https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=Arduino&logoColor=white"/>
             <img src="https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=VisualStudioCode&logoColor=white"/>
         </td>
     </tr>
@@ -75,8 +74,8 @@
 
 <br>
 
-## ⚙ 시스템 아키텍처(구조) 예시 
-![서비스 아키텍처](https://user-images.githubusercontent.com/25995055/169925538-15867bd9-aa0b-42fc-a39b-88981e926e51.png)
+## ⚙ 시스템 아키텍처(구조)
+![개발환경](https://github.com/user-attachments/assets/575273dd-39cf-4584-abca-c895bec134eb)
 <br>
 
 ## 📌 SW유스케이스
@@ -84,25 +83,21 @@
 <br>
 
 ## 📌 서비스 흐름도
-![image](https://user-images.githubusercontent.com/25995055/178401048-d6484bda-a2d7-40e1-998b-2bd195cd9f89.png)
+![image](https://github.com/user-attachments/assets/c551dcc3-9757-4a5e-a62b-57199a56418d)
 <br>
 
+
 ## 📌 ER다이어그램
-![image](https://user-images.githubusercontent.com/25995055/169925318-102784c2-893f-4fd7-bec9-a54c44b669d4.png)
+![image](https://github.com/user-attachments/assets/a02a4058-4341-4a36-b588-94800f2e8ea8)
+
 <br>
 
 ## 🖥 화면 구성
+### 화면 설계도
+![image](https://github.com/user-attachments/assets/e85a22c1-d35f-48f6-909d-98297266360b)
 
-### 로그인/회원가입/회원괸리/회원수정/회원탈퇴
-![image](https://user-images.githubusercontent.com/25995055/178401098-95f15a0e-a2de-415e-83d5-883bb4cb0656.png)
-<br>
-
-### 옷 정보/코디 추천(날씨, 팁, 오늘의 코디, 참고할 수 있는 코디)
-![image](https://user-images.githubusercontent.com/25995055/178401127-287e6de2-4396-49fc-a107-59c4d5cd55c7.png)
-<br>
-
-### 일정/고객센터
-![image](https://user-images.githubusercontent.com/25995055/178401150-861f0e93-0f40-4fae-98c1-2099bf513c8d.png)
+### 추천 여행장소 선택, 경로 및 도보시간 확인
+![image](https://github.com/user-attachments/assets/bb459cb1-a8f0-4347-86ca-fa544b1436a2)
 <br>
 
 ## 👨‍👩‍👦‍👦 팀원 역할
@@ -115,34 +110,36 @@
     <td align="center"><img src="https://pbs.twimg.com/media/B-n6uPYUUAAZSUx.png" width="100" height="100"/></td>
   </tr>
   <tr>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
+    <td align="center"><strong>김경민</strong></td>
+    <td align="center"><strong>김하은</strong></td>
+    <td align="center"><strong>김민</strong></td>
+    <td align="center"><strong>정은경</strong></td>
+    <td align="center"><strong>박강준</strong></td>
   </tr>
   <tr>
-    <td align="center"><b>Frontend</b></td>
-    <td align="center"><b>Frontend</b></td>
-    <td align="center"><b>Backend</b></td>
-    <td align="center"><b>Backend</b></td>
-    <td align="center"><b>Deep Learning</b></td>
+    <td align="center"><b>PM, Backend</b></td>
+    <td align="center"><b>Frontend, Backend</b></td>
+    <td align="center"><b>DB, Backend</b></td>
+    <td align="center"><b>Backend, ML</b></td>
+    <td align="center"><b>Backend, DB</b></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
+    <td align="center">로그인, 로그아웃, 회원가입 기능</td>
+    <td align="center">전체 페이지 설계 및 구현, 카카오API 활용 지도 기능, DB설계</td>
+    <td align="center">DB 설계 및 구현</td>
+    <td align="center">여행명소 선택 페이지 기능 연동, KNN 알고리즘 연동</td>
+    <td align="center">여행 경로 저장 기능, 에러 디버깅</td>
   </tr>
 </table>
 
 ## 🤾‍♂️ 트러블슈팅
-개념: 문제 해결을 위해 문제의 원인을 논리적이고 체계적으로 찾는 일이며 제품이나 프로세스의 운영을 재개
-프로젝트 진행하는 동안 발생했던 이슈 중 가장 기억에 남았던 문제와 해결 프로세스 나열(2~5가지 정도)
-  
-* 문제1<br>
- 문제점 설명 및 해결방안
+### 문제1<br>
+ - 문제점: 여행 명소 선택 페이지 5개씩 비동기 페이지 전환 어려움
+ - 문제점 설명 및 해결방안
+   : JSP/Servlet을 사용하면서 비동기 요청 처리가 어려워 5개씩 보이고 나머지는 display 되지 않는 식으로 구현하였음
  
-* 문제2<br>
- 문제점 설명 및 해결방안
+### 문제2<br>
+ - 문제점: 카카오맵 API 도보 경로 및 소요시간 지원 불가
+ - 문제점 설명 및 해결방안
+   : 카카오맵 API에서는 도보 경로가 아닌 직선 경로만 제공하고 있어 도보 경로를 출력하는 데 어려움이 있었음.
+   도보 시간 같은 경우, 직선 거리와 평균 걷기 속도로 시간을 구하여 산출하였음.
